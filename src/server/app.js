@@ -1,0 +1,71 @@
+const express = require('express');
+const app = express();
+const passport = require('passport');
+const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const session = require('express-session');
+const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
+
+
+
+module.exports = function(){
+    const publicRouter = require('./routes/public')();
+    //DB Config
+    const db = require('../config/keys').MongoURI
+
+    //Passport config
+    require('../config/passport')(passport)
+    //Connect to Mongo
+    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(()=>{
+            console.log('MongoDB Database Connected')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+
+    //Front end
+    app.use(express.static(path.join(__dirname, 'public')))
+    app.set('view engine', 'ejs');
+
+
+    //body parser
+    app.use(bodyParser.json());
+    app.use(express.urlencoded({
+      extended: true
+    }))
+    app.use(express.json())
+
+    
+    //Express Session
+    app.use(session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+      }))
+
+
+     //passport
+     app.use(passport.initialize());
+     app.use(passport.session());
+
+    //Connect flash
+    app.use(flash())
+
+    //global
+    // app.use((req,res,next)=>{
+    //     res.locals.sucess_msg= req.flash('success_msg');
+    //     res.locals.error_msg= req.flash('error_msg');
+    //     next();
+    // })
+
+   
+
+    app.use('/', publicRouter)
+
+
+    return app
+}
+

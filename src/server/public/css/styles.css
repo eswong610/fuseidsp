@@ -1,0 +1,200 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#app, #blue_section, #white_section, .checkbox_container, .login_btns, #login_section, #white_heading, #white_heading p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+#blue_section {
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#8ad1f1));
+  background-image: linear-gradient(to bottom, white, #8ad1f1);
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+}
+
+#blue_section img {
+  min-width: 500px;
+  height: auto;
+}
+
+#white_section {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  height: 100vh;
+}
+
+#login_section {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+#white_heading {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#white_heading p:nth-child(1) {
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+#white_heading p:nth-child(2) {
+  font-size: 16pt;
+  padding: 0 0 0 20px;
+}
+
+#password_link {
+  margin: 10px;
+  color: #2185D0;
+  text-decoration: underline;
+}
+
+#login_btn {
+  border: #DEDEDF;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+  color: white;
+  background-color: #8AD1F1;
+  border-radius: 3px;
+  padding: 0 20px;
+  margin: 0 10px;
+}
+
+#signup_btn {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 14pt;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #E0E1E2;
+  border-radius: 3px;
+  padding: 0 20px;
+  margin: 0 10px;
+}
+
+#input_username, #input_password {
+  border: 1px solid #DEDEDF;
+  border-radius: 3px;
+  min-height: 25px;
+  margin: 5px;
+}
+
+#confirmBody {
+  overflow-y: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#SideDecore {
+  width: 100vw;
+  height: 100vh;
+}
+
+#pink-box {
+  width: 39.5%;
+  height: 5%;
+  background-color: #EF7DAE;
+  position: absolute;
+  right: 0px;
+  top: 820px;
+}
+
+#blueBox {
+  width: 60%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+  background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+}
+
+#sideLogo {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#nextButton {
+  background: #373837;
+  border-radius: 11px;
+  padding: 12px 39px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 16px/1 "Open Sans", sans-serif;
+  text-align: center;
+  position: absolute;
+  right: 90px;
+  top: 700px;
+}
+
+#cancelButton {
+  background: #373837;
+  border-radius: 11px;
+  padding: 12px 39px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 16px/1 "Open Sans", sans-serif;
+  text-align: center;
+  position: absolute;
+  right: 435px;
+  top: 700px;
+}
+
+.form-horizontal {
+  position: absolute;
+  right: 90px;
+  top: 200px;
+  display: inline-block;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.form-group input {
+  padding: 20px;
+  width: 400px;
+}
+
+#diectionsText {
+  position: absolute;
+  right: 120px;
+  top: 70px;
+}
+/*# sourceMappingURL=styles.css.map */
