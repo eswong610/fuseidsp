@@ -13,7 +13,7 @@ const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
 module.exports = function(){
     const publicRouter = require('./routes/public')();
     //DB Config
-    const db = require('../config/keys').MongoURI
+    const db = process.env.MONGO_URI
 
     //Passport config
     require('../config/passport')(passport)
