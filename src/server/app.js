@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const cors = require('cors')
 // const dotenv = require('dotenv').config({path: '/.env'})
 // {path: __dirname + '/../../../.env'}
 
@@ -41,7 +42,7 @@ module.exports = function(){
     
     // cors origin URL - Allow inbound traffic from origin
     corsOptions = {
-        origin: "Your FrontEnd Website URL",
+        origin: "https://sleepy-atoll-32836.herokuapp.com/",
         optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
     app.use(cors(corsOptions));
