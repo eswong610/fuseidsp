@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+body{
+    display: flex;
+    height: 100vh
+}
+
+.FormCarousel{
+    height: 30rem;
+}
+
+.logo-image-container{
+    width: 50%;
+    
+    background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+}
+.user-input-container{
+    width: 50%;
+}
+
+.custom-carousel-btns{
+    height: 5rem; 
+    width: 5rem; 
+    
+    margin-top: 12rem; 
+}
+
+.custom-form-container{
+    margin: 3rem;
+    min-height: 20rem;
+    overflow-y: hidden
+
+}
+
+.header-text{
+    margin-top: 4rem;
+    margin-left: 3.75rem;
+    .welcome-text{
+        font-size: 1.5rem;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .instruction-text{
+        font-size: 1rem;
+        color: rgb(70, 70, 70);
+        text-align: left;
+    }
+}
+
+.legend-text{
+    padding-left: 1rem;
+}
+
+.form-one-container{
+    font-weight:bold;
+}
+
+.btn-container{
+    display:flex;
+    justify-content: center;
+}
+

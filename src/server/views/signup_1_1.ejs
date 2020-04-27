@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='../css/signup.css'/>
+    <title>Sign Up</title>
+</head>
+<body>
+
+
+    <section class="logo-image-container">
+        
+
+    </section>
+    <section class="user-input-container">
+    <div class="header-text">
+        <h2 class="welcome-text">Welcome to Fuse!</h2>
+        <h4 class="instruction-text">Fill out the form below to sign-up for a new account</h4>
+    </div>
+
+    <!-- CAROUSEL  -->
+    <div id="FormCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ol class="carousel-indicators">
+          <li data-target="#FormCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#FormCarousel" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active custom-form-container">
+            <form method='POST' action='/signup_test' class="form-one-container">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend class="legend-text">Sign Up</legend> 
+
+                    <%- include ('partials/message') %>
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Name">Name</label>  
+                        <div class='col-md-10'>
+                        <input id="Name" name="name" type="text" placeholder="Name" value="<% typeof name != 'undefined' ? name : '' %>" class="form-control input-md" required="">
+                        </div>
+                      </div>
+                    
+                    <!-- Address input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="addressInp">Email Address</label>
+                        <div class='col-md-10'>
+                            <input id="addressInp" name="addressInp" type="text" placeholder="Email Address" value="<% typeof addressInp != 'undefined' ? addressInp : '' %>" class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="usernameInp">Username</label>  
+                        <div class='col-md-10'>
+                        <input id="usernameInp" name="usernameInp" type="text" placeholder="Username" value="<% typeof usernameInp != 'undefined' ? usernameInp : '' %>" class="form-control input-md" required="">
+                          
+                        </div>
+                      </div>
+                      
+
+                    <!-- Password input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="passwordInp">Password</label>
+                        <div class='col-md-10'>
+                            <input class="form-control input-md" id="passwordInp" name="passwordInp" placeholder="Password" type="password">
+                        </div>
+                    </div>
+
+                    <!-- Password COnfirm  -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="passwordConfirmInp">Confirm Password</label>
+                        <div class='col-md-10'>
+                          <input id="passwordConfirmInp" name="passwordConfirmInp" type="password" placeholder="Confirm Password" value="<% typeof passwordConfirmInp != 'undefined' ? passwordConfirmInp : '' %>" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                      
+                </fieldset>
+            
+          </div>
+
+            <div class="carousel-item custom-form-container">
+                <!-- Country -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="countryInp">Country</label>
+                    <div>
+                      <select id="countryInp" name="countryInp" class="form-control">
+                        <option value="Canada">Canada</option>
+                        <option value="United States of America">United States of America</option>
+                        <option value="Mexico">Mexico</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Province -->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="provinceInp">State/Province</label>
+                    <div>
+                      <select id="provinceInp" name="provinceInp" class="form-control">
+                        <option value="QC">Quebec</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AL">Alberta</option>
+                        <option value="NB">New Brunswick</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- City -->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="cityInp">Citty</label>
+                    <div>
+                      <select id="cityInp" name="cityInp" class="form-control">
+                        <option value="Montreal">Montreal</option>
+                        <option value="Quebec City">Quebec City</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Age  -->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="ageInp">Age</label>  
+                    <div>
+                    <input id="ageInp" name="ageInp" type="text" placeholder="Age" class="form-control input-md" required="">
+                      
+                    </div>
+                  </div>
+
+                  <!-- Gender  -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Female
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Preferred</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                  </div>
+
+                  <label>Interested In</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Men" id='checkbox1' name="interested-in-input">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Men
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Women" id="checkbox2" name="interested-in-input">
+                    <label class="form-check-label" for="checkbox2">
+                        Women
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Both" id="checkbox3" name='interested-in-input'>
+                    <label class="form-check-label" for="checkbox3">
+                        Both
+                    </label>
+                  </div>
+
+
+                  <div class="btn-container">
+                        <button class="btn btn-outline-success" type="submit">
+                            Sign Up 
+                        </button>
+                  </div>
+            </div>
+
+          </form>
+        </div>
+        <a class="carousel-control-prev pt-4 pr-5 custom-carousel-btns" href="#FormCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon" style='filter: invert();'></span>
+          </a>
+          <a class="carousel-control-next pt-4 pl-5 custom-carousel-btns" href="#FormCarousel" data-slide="next" >
+            <span class="carousel-control-next-icon" style='filter: invert();'></span>
+          </a>
+      </div>
+      <!-- Carousel end -->
+
+    </section>
+      <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

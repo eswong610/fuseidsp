@@ -11,7 +11,10 @@ const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
 
 
 module.exports = function(){
+
+    // use routes folder
     const publicRouter = require('./routes/public')();
+    const socketRouter = require('./routes/socket')();
     //DB Config
     const db = process.env.MONGO_URI
 
@@ -29,6 +32,8 @@ module.exports = function(){
     //Front end
     app.use(express.static(path.join(__dirname, 'public')))
     app.set('view engine', 'ejs');
+
+    
 
 
     //body parser
@@ -64,6 +69,8 @@ module.exports = function(){
    
 
     app.use('/', publicRouter)
+    
+    app.use('/', socketRouter)
 
 
     return app

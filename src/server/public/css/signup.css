@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.FormCarousel {
+  height: 30rem;
+}
+
+.logo-image-container {
+  width: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+  background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+}
+
+.user-input-container {
+  width: 50%;
+}
+
+.custom-carousel-btns {
+  height: 5rem;
+  width: 5rem;
+  margin-top: 12rem;
+}
+
+.custom-form-container {
+  margin: 3rem;
+  min-height: 20rem;
+  overflow-y: hidden;
+}
+
+.header-text {
+  margin-top: 4rem;
+  margin-left: 3.75rem;
+}
+
+.header-text .welcome-text {
+  font-size: 1.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.header-text .instruction-text {
+  font-size: 1rem;
+  color: #464646;
+  text-align: left;
+}
+
+.legend-text {
+  padding-left: 1rem;
+}
+
+.form-one-container {
+  font-weight: bold;
+}
+
+.btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=signup.css.map */
