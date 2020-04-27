@@ -22,13 +22,13 @@ module.exports = function(){
     //Passport config
     require('../config/passport')(passport)
     //Connect to Mongo
-    // mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    //     .then(()=>{
-    //         console.log('MongoDB Database Connected')
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err)
-    //     })
+    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(()=>{
+            console.log('MongoDB Database Connected')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
 
     //Front end
     app.use(express.static(path.join(__dirname, 'public')))
