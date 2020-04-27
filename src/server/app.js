@@ -49,7 +49,7 @@ module.exports = function(){
     
     //Express Session
     app.use(session({
-        secret: process.env.SESSION_SECRET,
+        secret: 'secret',//process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
       }))
