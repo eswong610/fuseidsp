@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
-const dotenv = require('dotenv').config({path: '/../../.env'})
+// const dotenv = require('dotenv').config({path: '/../../.env'})
+// {path: __dirname + '/../../../.env'}
 
 
 
@@ -17,18 +18,19 @@ module.exports = function(){
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
     //DB Config
-    const db = process.env.MONGO_URI;
+    //const db = process.env.MONGO_URI;
+    const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
     
     //Passport config
     require('../config/passport')(passport)
     // Connect to Mongo
-    // mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    //     .then(()=>{
-    //         console.log('MongoDB Database Connected')
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err)
-    //     })
+    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(()=>{
+            console.log('MongoDB Database Connected')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
 
     //Front end
     app.use(express.static(path.join(__dirname, 'public')))
@@ -49,7 +51,7 @@ module.exports = function(){
     
     //Express Session
     app.use(session({
-        secret: process.env.SESSION_SECRET,
+        secret: 'secret',//process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
       }))

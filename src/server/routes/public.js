@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User').User
 const bcrypt = require('bcrypt')
 const passport = require('passport')
-
+const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
 
 
 module.exports = function(){
