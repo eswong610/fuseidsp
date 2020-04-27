@@ -21,7 +21,7 @@ module.exports = function(){
     //Passport config
     require('../config/passport')(passport)
     //Connect to Mongo
-    mongoose.connect('mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(()=>{
             console.log('MongoDB Database Connected')
         })
