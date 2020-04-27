@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
-const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
+const dotenv = require('dotenv').config({path: '/.env'})
 
 
 
