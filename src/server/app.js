@@ -17,11 +17,11 @@ module.exports = function(){
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
     //DB Config
-    const db = process.env.MONGO_URI
+    const db = process.env.MONGO_URI;
     
     //Passport config
     require('../config/passport')(passport)
-    //Connect to Mongo
+    // Connect to Mongo
     // mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     //     .then(()=>{
     //         console.log('MongoDB Database Connected')
@@ -49,7 +49,7 @@ module.exports = function(){
     
     //Express Session
     app.use(session({
-        secret: 'secret',//process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
       }))
