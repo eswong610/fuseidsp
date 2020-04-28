@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const cors = require('cors')
-// const dotenv = require('dotenv').config({path: '/.env'})
+const dotenv = require('dotenv').config({path: '/.env'})
 // {path: __dirname + '/../../../.env'}
 
 
@@ -19,8 +19,8 @@ module.exports = function(){
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
     //DB Config
-    //const db = process.env.MONGO_URI;
-    const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
+    const db = process.env.MONGO_URI;
+    // const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
     // const heroku_uri = "mongodb://heroku_5z1f7l4t:8frb4fh46qrhl385c6qhh7nlhj@ds263638.mlab.com:63638/heroku_5z1f7l4t"
     //Passport config
     require('../config/passport')(passport)
@@ -58,7 +58,7 @@ module.exports = function(){
     
     //Express Session
     app.use(session({
-        secret: 'secret',//process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET, 
         resave: true,
         saveUninitialized: true,
       }))
