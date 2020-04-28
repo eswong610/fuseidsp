@@ -19,8 +19,8 @@ module.exports = function(){
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
     //DB Config
-    const db = process.env.MONGO_URI;
-    // const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
+    // const db = process.env.MONGO_URI;
+    const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
     // const heroku_uri = "mongodb://heroku_5z1f7l4t:8frb4fh46qrhl385c6qhh7nlhj@ds263638.mlab.com:63638/heroku_5z1f7l4t"
     //Passport config
     require('../config/passport')(passport)
