@@ -78,7 +78,7 @@ body{
 
 .interested-in-text{
     margin-top: 0.5rem;
-    
+
 }
 
 .legend-text{
@@ -93,4 +93,39 @@ body{
     display:flex;
     justify-content: center;
 }
+
+.custom-confirmation-container{
+    display:flex;
+    align-items: center;
+    margin-left: 2.75rem;
+    margin-right: auto;
+    
+    
+
+}
+.custom-confirmation-content-container{
+    background: rgba(138,209,241,1);
+    display:flex;
+    height: 16rem;
+    flex-direction: column;
+    align-items: center;
+    
+    border-radius: 5px;
+    color: white;
+}
+
+.confirmation-content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0 auto 0;
+
+}
+
+.confirmation-login-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
 
