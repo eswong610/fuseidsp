@@ -80,12 +80,11 @@
                 </fieldset>
             
           </div>
-
-            <div class="carousel-item custom-form-container">
+            <div class="carousel-item second-custom-form-container">
                 <!-- Country -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="countryInp">Country</label>
-                    <div>
+                    <div class='col-md-10'>
                       <select id="countryInp" name="countryInp" class="form-control">
                         <option value="Canada">Canada</option>
                         <option value="United States of America">United States of America</option>
@@ -97,7 +96,7 @@
                   <!-- Province -->
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="provinceInp">State/Province</label>
-                    <div>
+                    <div class='col-md-10'>
                       <select id="provinceInp" name="provinceInp" class="form-control">
                         <option value="QC">Quebec</option>
                         <option value="BC">British Columbia</option>
@@ -109,8 +108,8 @@
 
                   <!-- City -->
                   <div class="form-group">
-                    <label class="col-md-4 control-label" for="cityInp">Citty</label>
-                    <div>
+                    <label class="col-md-4 control-label" for="cityInp">City</label>
+                    <div class='col-md-10'>
                       <select id="cityInp" name="cityInp" class="form-control">
                         <option value="Montreal">Montreal</option>
                         <option value="Quebec City">Quebec City</option>
@@ -121,52 +120,62 @@
                   <!-- Age  -->
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="ageInp">Age</label>  
-                    <div>
+                    <div class='col-md-10'>
                     <input id="ageInp" name="ageInp" type="text" placeholder="Age" class="form-control input-md" required="">
                       
                     </div>
                   </div>
 
                   <!-- Gender  -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Male
-                    </label>
+                  <div class='gender-container d-flex bd-highlight col-md-10'>
+                  <div class='male-female-container'>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Female
+                            </label>
+                        </div>
                   </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Female
-                    </label>
+                  <div class="form-group preferred-gender-container d-flex align-items-end">
+                    <label for="preferred-gender" class='preferred-gender-text'>Preferred</label>
+                    <div class='col-md-12 custom-gender-container'>
+                        <input type="text" class="form-control" id="preferred-gender" placeholder="Non-binary">
+                    </div>    
                   </div>
-                  <div class="form-group">
-                    <label for="formGroupExampleInput">Preferred</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class='interested-in-container d-flex col-md-10'>
+                  <div>
+                      <p class="interested-in-text"> Interested In : </p>  
                   </div>
 
-                  <label>Interested In</label>
-                  <div class="form-check">
+                  <div class="form-check m-2">
                     <input class="form-check-input" type="checkbox" value="Men" id='checkbox1' name="interested-in-input">
                     <label class="form-check-label" for="defaultCheck1">
                       Men
                     </label>
                   </div>
-                  <div class="form-check">
+                  <div class="form-check m-2">
                     <input class="form-check-input" type="checkbox" value="Women" id="checkbox2" name="interested-in-input">
                     <label class="form-check-label" for="checkbox2">
                         Women
                     </label>
                   </div>
-                  <div class="form-check">
+                  <div class="form-check m-2">
                     <input class="form-check-input" type="checkbox" value="Both" id="checkbox3" name='interested-in-input'>
                     <label class="form-check-label" for="checkbox3">
                         Both
                     </label>
                   </div>
+                </div> 
 
 
-                  <div class="btn-container">
+                  <div class="btn-container col-md-10 d-flex justify-content-center mt-2">
                         <button class="btn btn-outline-success" type="submit">
                             Sign Up 
                         </button>

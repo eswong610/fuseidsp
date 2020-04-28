@@ -17,6 +17,7 @@ body {
 
 .logo-image-container {
   width: 50%;
+  min-height: 20rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
   background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
 }
@@ -37,6 +38,30 @@ body {
   overflow-y: hidden;
 }
 
+.second-custom-form-container {
+  background: white;
+  max-height: 100vh;
+  margin: 3rem;
+}
+
+.gender-container .interested-in-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.preferred-gender-text {
+  margin-right: 0.6rem;
+}
+
+.male-female-container {
+  margin-right: 2.5rem;
+}
+
+.custom-gender-container {
+  padding: 0;
+}
+
 .header-text {
   margin-top: 4rem;
   margin-left: 3.75rem;
@@ -52,6 +77,10 @@ body {
   font-size: 1rem;
   color: #464646;
   text-align: left;
+}
+
+.interested-in-text {
+  margin-top: 0.5rem;
 }
 
 .legend-text {
