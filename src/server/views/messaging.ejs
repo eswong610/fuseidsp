@@ -14,14 +14,32 @@
     </style>
   </head>
   <body>
+      <h1> MESAGES </h1>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
-        var socket = io();
+      $(function () {
+        
+        //var socket = io();
+        var socket = io({transports: ['websocket'], upgrade: false});
+        $('form').submit(function(e) {
+          e.preventDefault(); // prevents page reloading
+          console.log($('#m').val());
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+           socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').text(msg));
+        });
+      });
     </script>
+
+    
   </body>
 </html>
