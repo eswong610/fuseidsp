@@ -1,0 +1,79 @@
+.navbar-img {
+  height: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.page-container {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.right-image-container {
+  max-width: 50%;
+  height: 20rem;
+}
+
+.list-group-item {
+  border-right: none;
+  border-left: none;
+}
+
+.list-item-first {
+  border-top: none;
+}
+
+.user-profile-img {
+  width: 25rem;
+  height: 25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.image-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.image-caption-content {
+  background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+  background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  color: white;
+}
+
+.user-img-content-container {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+  background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+  min-height: 100vh;
+}
+
+.instagram-link-container a:hover {
+  text-decoration: none;
+  color: #8ad1f1;
+}
+
+.instagram-link-container a {
+  color: black;
+}
+
+figcaption {
+  color: white;
+}
+
+.custom-active {
+  background-color: #8ad1f1;
+  opacity: 80%;
+  border-color: #6ca8c4;
+  border-radius: 5px;
+  z-index: 2;
+  color: white;
+}
+/*# sourceMappingURL=userprofile.css.map */

@@ -18,6 +18,7 @@ module.exports = function(){
     // use routes folder
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
+    const usersRouter = require('./routes/user')();
     //DB Config
     const db = process.env.MONGO_URI;
     //const db = "mongodb+srv://admin:datingapp20@idspcluster-ebg6a.mongodb.net/test?retryWrites=true&w=majority"
@@ -81,6 +82,7 @@ module.exports = function(){
    
 
     app.use('/', publicRouter)
+    app.use('/', usersRouter)
     
     app.use('/', socketRouter)
 

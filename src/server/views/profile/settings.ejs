@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ("../partials/head") %>
+    <link rel="stylesheet" type="text/css" href="css/userprofile.css" />
+    <title>Personal Profile</title>
+</head>
+
+<body>
+    <div class="page-container">
+    <%- include ("../partials/navbar") %>
+    <div class="prsnl-profile-content-big-container d-flex">
+
+            <div class=" user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="user-profile-img">
+                        <figure class='user-profile-figure'>
+                            <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
+                            <figcaption style='background:linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));'>A frogoo</figcaption>
+                        </figure>
+                </div> 
+                <div class="change-picture-container mt-5">
+                    <button class='btn btn-outline-dark btn-lg'type='button' href='#'>Update Profile Picture</button>
+                </div>
+            </div>
+
+    <div class="user-content-container col-md-8">
+            <!-- preferences -->
+            <h5 class='text-center p-5'>Settings</h5>
+            <div class='preferences-container d-flex justify-content-center '>
+
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item list-item-first">Report Abuse</li>
+                        <li class="list-group-item custom-active">Terms and Agreements</li>
+                        <li class="list-group-item">Privacy Policy </li>
+                        <li class="list-group-item">Contact Us </span></li>
+                        <li class="list-group-item">Close Account </span></li>
+
+                    </ul>
+            </div>
+
+        
+    </div>
+    </div>
+</div>
+  </body>
+</html>

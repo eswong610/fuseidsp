@@ -35,11 +35,12 @@
           return false;
         });
            socket.on('chat message', function(msg){
-            $('#messages').append($('<li>').text(msg));
+             
+             let fullmsg = `${socket.id}: ${msg}`
+            $('#messages').append($('<li>').text(fullmsg));
         });
       });
     </script>
-
     
   </body>
 </html>
