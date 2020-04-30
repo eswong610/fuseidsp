@@ -6,5 +6,5 @@ const instantiated = server.listen(port, ()=>{
     console.log(`Server started at port http://localhost:${port}`)
 })
 
-var io = require('socket.io')(instantiated);
+const io = require('socket.io')(instantiated);
 server.set('socketio', io);

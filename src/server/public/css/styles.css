@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #app, #blue_section, #white_section, .checkbox_container, .login_btns, #login_section, #white_heading, #white_heading p {
@@ -89,7 +89,7 @@ p {
   font-weight: bold;
   font-size: 14pt;
   color: white;
-  background-color: #8AD1F1;
+  background-color: #8ad1f1;
   border-radius: 3px;
   padding: 0 20px;
   margin: 0 10px;
@@ -196,5 +196,15 @@ p {
   position: absolute;
   right: 120px;
   top: 70px;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+    background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+  }
+  #blue_section {
+    display: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

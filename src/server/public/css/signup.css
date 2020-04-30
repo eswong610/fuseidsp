@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 
 body {
@@ -52,6 +53,10 @@ body {
 
 .preferred-gender-text {
   margin-right: 0.6rem;
+}
+
+#preferred-gender {
+  margin-right: 0.4rem;
 }
 
 .male-female-container {
@@ -107,8 +112,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 2.75rem;
-  margin-right: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto 0 auto;
 }
 
 .custom-confirmation-content-container {

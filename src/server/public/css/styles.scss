@@ -1,3 +1,7 @@
+$background-gradient :linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+$mainblue: rgba(138,209,241,1);
+$font: 'Montserrat', sans-serif;
+
 body{
     width: 100vw;
     height: 100vh;
@@ -5,7 +9,7 @@ body{
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font;
 }
 
 
@@ -67,7 +71,7 @@ p {
     font-weight: bold;
     font-size: 14pt;
     color: white;
-    background-color: #8AD1F1;
+    background-color: $mainblue;
     border-radius: 3px;
     padding: 0 20px;
     margin: 0 10px;
@@ -171,3 +175,13 @@ p {
     right: 120px;
     top:70px;
 }
+
+
+@media only screen and (max-width: 900px) {
+    body {
+      background: $background-gradient ;
+    }
+    #blue_section{
+        display: none;
+    }
+  }

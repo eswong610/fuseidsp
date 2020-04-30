@@ -1,0 +1,76 @@
+@import 'partials/_navbar';
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.page-container{
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.right-image-container{
+    max-width: 50%;
+    height: 20rem;
+   
+}
+
+.list-group-item{
+    border-right: none;
+    border-left: none;
+    
+}
+.list-item-first{
+    border-top: none;
+}
+
+
+.user-profile-img{
+    width:25rem;
+    height: 25rem;
+    object-fit: cover;
+    
+    
+    
+}
+
+.image-content-container{
+    display:flex;
+    justify-content: center;
+}
+
+.image-caption-content{
+    background: linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
+    color: white;
+}
+
+
+
+.user-img-content-container{
+    background: linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    min-height: 100vh;
+}
+
+.instagram-link-container a:hover{
+    text-decoration: none;
+    color: rgba(138,209,241,1)
+}
+
+.instagram-link-container a{
+    
+    color: black
+}
+
+figcaption{
+    color: white;
+}
+
+.custom-active{
+    background-color: rgba(138,209,241,1);
+    opacity: 80%;
+    border-color:  rgb(108, 168, 196);
+    border-radius: 5px;
+    z-index:2;
+    color: white;
+}

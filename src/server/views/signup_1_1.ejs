@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel='stylesheet' href='../css/signup.css'/>
+    <link rel='stylesheet' href='css/signup.css'/>
     <title>Sign Up</title>
 </head>
 <body>
@@ -127,9 +127,10 @@
                   </div>
 
                   <!-- Gender  -->
-                  <div class='gender-container d-flex bd-highlight col-md-10'>
+                  <div class='gender-container d-flex bd-highlight col-md-10 justify-content-between'>
                   <div class='male-female-container'>
-                        <div class="form-check">
+                      <label class='form-check-label mb-3'>Gender</label><br>
+                        <div class="form-check ">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                             Male
@@ -142,14 +143,14 @@
                             </label>
                         </div>
                   </div>
-                  <div class="form-group preferred-gender-container d-flex align-items-end">
+                  <div class="form-group preferred-gender-container d-flex align-items-end col-md-10 pl-0">
                     <label for="preferred-gender" class='preferred-gender-text'>Preferred</label>
-                    <div class='col-md-12 custom-gender-container'>
+                    
                         <input type="text" class="form-control" id="preferred-gender" placeholder="Non-binary">
-                    </div>    
+                        
                   </div>
                 </div>
-                <div class='interested-in-container d-flex col-md-10'>
+                <div class='interested-in-container d-flex col-md-10 mt-2'>
                   <div>
                       <p class="interested-in-text"> Interested In : </p>  
                   </div>
@@ -173,9 +174,23 @@
                     </label>
                   </div>
                 </div> 
+                
+                <div class="form-check ml-3">
+                  <input class="form-check-input" type="checkbox" value="email-mailing-list" id='email-mailing-list' name="interested-in-input">
+                  <label class="form-check-label" for="email-mailing-list">
+                    Receive emails on news and promotions
+                  </label>
+                </div>
+                <div class="form-check ml-3">
+                  <input class="form-check-input" type="checkbox" value="terms-and-conditions-agree" id='terms-and-conditions' name="interested-in-input">
+                  <label class="form-check-label" for="terms-and-conditions">
+                    I agree to the terms and conditions
+                  </label>
+                </div>
+                
 
 
-                  <div class="btn-container col-md-10 d-flex justify-content-center mt-2">
+                  <div class="btn-container col-md-10 d-flex justify-content-center mt-4">
                         <button class="btn btn-outline-success" type="submit">
                             Sign Up 
                         </button>
