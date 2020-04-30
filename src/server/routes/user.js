@@ -11,5 +11,9 @@ module.exports = function () {
         res.render('profile/personal_profile')
     })
 
+    router.get('/settings', (req,res)=>{
+        res.render('profile/settings')
+    })
+
     return router
 }
