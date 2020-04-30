@@ -1,5 +1,6 @@
 $background-gradient :linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
 $mainblue: rgba(138,209,241,1);
+$font: 'Montserrat', sans-serif;
 
 body{
     width: 100vw;
@@ -8,7 +9,7 @@ body{
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font;
 }
 
 

@@ -5,13 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ("../partials/head") %>
     <link rel="stylesheet" type="text/css" href="css/userprofile.css" />
-    <title>User Profile</title>
+    <title>Personal Profile</title>
 </head>
-<body>
-    <%- include ("../partials/navbar") %>
 
-    <div class="right-image-container img-fluid rounded">
-        <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1268&q=80">
+<body>
+    <div class="page-container">
+    <%- include ("../partials/navbar") %>
+    <div class="prsnl-profile-content-big-container d-flex">
+
+            <div class=" user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="user-profile-img">
+                        <figure class='user-profile-figure'>
+                            <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
+                            <figcaption style='background:linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));'>A frogoo</figcaption>
+                        </figure>
+                </div> 
+                <div class="change-picture-container mt-5">
+                    <button class='btn btn-outline-dark btn-lg'type='button' href='#'>Update Profile Picture</button>
+                </div>
+            </div>
+
+    <div class="user-content-container">
+        
+        <div class="user-profile-content-container d-flex flex-column align-items-center p-4">
+            <h3 class='text-center font-weight-bold'>Profile</h5>
+            <h4 class='m-3 mt-2'>Bob ThirtyThree</h1>
+            <h5>25 Years Old</h2>
+            <p class='border rounded mt-3 p-3'>Cotton candy gummies bear claw chocolate gummies apple pie liquorice cheesecake apple pie. Toffee cookie wafer chocolate cake apple pie lemon drops jelly beans pastry. Soufflé jelly beans gummi bears sesame snaps. Tart toffee gummies cookie wafer pastry candy canes oat cake. Lollipop pudding cake. Biscuit carrot cake gingerbread marzipan danish tiramisu. Candy canes chocolate bar chocolate cake. Marzipan pudding pastry donut tootsie roll tootsie roll ice cream cake. Marzipa</p>
+        
+            <!-- preferences -->
+           
+            <div class='preferences-container d-flex justify-content-between w-100'>
+                
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item list-item-first">Smoking</li>
+                        <li class="list-group-item custom-active">Active</li>
+                        <li class="list-group-item custom-active ">Drinking &emsp;</li>
+                        <li class="list-group-item">LoremIpsum </span></li>
+                    </ul>
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item list-item-first">Smoking</li>
+                        <li class="list-group-item">Active</li>
+                        <li class="list-group-item">Drinking &emsp;</li>
+                        <li class="list-group-item">LoremIpsum </span></li>
+                    </ul>
+
+            </div>
+
+            <div class="instagram-link-container d-flex align-items-center mt-5">
+                <div class="icon-ig-content">
+                    <i class='fab fa-instagram brand-icon-ig mr-3' style='font-size:36px'></i>
+                </div>
+                <div class="link-ig-content">
+                    <a href='/'>Connect to Instagram</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-</body>
+    </div>
+</div>
+  </body>
 </html>
