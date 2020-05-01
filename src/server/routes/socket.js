@@ -1,12 +1,13 @@
 const express= require('express');
 const router = express.Router();
 
-module.exports = function (io) {
+module.exports = function () {
     
     //IT WORKS DNOT TOUCH THIS
     //Socket.io for live chatting.
     router.get('/message', (req,res)=>{
         let io = req.app.get('socketio');
+        
         if(io.sockets._events == undefined) {
             io.on('connection', socket => {
                 // console.log('%s sockets connected', io.engine.clientsCount);
@@ -28,6 +29,37 @@ module.exports = function (io) {
             //javascript: "../public/js/messaging.js"
         //});
     });
+
+
+    //test rooms 
+    rooms = {trialroom : 'hello'}
+
+    router.get('/rooms', (req,res)=>{
+        res.render('rooms', {rooms:rooms})
+    })
+
+    router.post('/rooms', (req,res)=>{
+        if (rooms[req.body.formroom] != null) {
+            return res.redirect('/rooms')
+        }
+        rooms[req.body.formroom] = { users: {} }
+
+        //Sends message that new room is created
+        
+        res.redirect(req.body.formroom);
+
+        let io = req.app.get('socketio');
+        
+        io.emit('room-created', req.body.formroom)
+
+    })
+
+    router.get('/:room', (req,res)=>{
+        // if (rooms[req.params.room] == null) {
+        //     res.redirect('rooms')
+        // }
+        res.redirect('/messaging')//, {roomName:req.params.room})
+    })
 
 
 

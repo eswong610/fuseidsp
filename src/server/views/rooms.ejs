@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Rooms index</h1>
+
+    <div class="room-container">
+        <% Object.keys(rooms).forEach((room)=>{ %>
+            <div><%= room %></div>
+            <a href='/socket/<%= room %>'>Join</a>
+        <% }) %>
+
+    </div>
+    <form action='/socket/rooms' method='POST'>
+        <input type='text' name='formroom' required />
+        <button type='submit'>Make new room</button>
+    </form>
+
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+</html>

@@ -36,6 +36,7 @@ module.exports = function(){
 
     //Front end
     app.use(express.static(path.join(__dirname, 'public')))
+    app.use('/static', express.static('public'))
     app.set('view engine', 'ejs');
 
     app.set('views', path.join(__dirname, './views'));
@@ -84,7 +85,7 @@ module.exports = function(){
     app.use('/', publicRouter)
     app.use('/', usersRouter)
     
-    app.use('/', socketRouter)
+    app.use('/socket/', socketRouter)
 
 
     return app

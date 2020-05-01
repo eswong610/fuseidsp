@@ -9,7 +9,24 @@ $(function () {
       $('#m').val('');
       return false;
     });
-       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+
+
+    socket.on('chat message', function(msg){
+        
+        let fullmsg = `${socket.id}: ${msg}`
+    $('#messages').append($('<li>').text(fullmsg));
     });
+
+    socket.on('room-created', room =>{
+        console.log('room-created socket emit')
+        const roomElement = document.createElement('div');
+        roomElement.innerText = room
+        const roomLink = document.createElement('a');
+        roomLink.href=`/sockets/${room}`;
+        roomLink.innerText('Join')
+        const roomContainer = document.getElementsByClassName('room-container');
+        roomContainer.append('roomElement');
+        roomContainer.append('roomLink');
+    })
+ 
   });

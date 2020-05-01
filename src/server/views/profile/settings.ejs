@@ -13,7 +13,9 @@
     <%- include ("../partials/navbar") %>
     <div class="prsnl-profile-content-big-container d-flex">
 
-            <div class=" user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+        
+        <div class=" user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+            <h3 class='mobile-heading-text mb-3 font-weight-bold'>Settings</h3>
                 <div class="user-profile-img">
                         <figure class='user-profile-figure'>
                             <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
@@ -21,7 +23,12 @@
                         </figure>
                 </div> 
                 <div class="change-picture-container mt-5">
-                    <button class='btn btn-outline-dark btn-lg'type='button' href='#'>Update Profile Picture</button>
+                    <form action='' method=''>
+                        <button class='btn btn-outline-dark btn-lg'type='submit' href='#'>Update Image</button>
+                    </form>
+                    <form action='/personal' method='GET'>
+                        <button class='btn btn-outline-dark btn-lg mt-3'type='submit'> Back to Profile </button>
+                    </form>
                 </div>
             </div>
 
@@ -31,11 +38,11 @@
             <div class='preferences-container d-flex justify-content-center '>
 
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Report Abuse</li>
-                        <li class="list-group-item custom-active">Terms and Agreements</li>
-                        <li class="list-group-item">Privacy Policy </li>
-                        <li class="list-group-item">Contact Us </span></li>
-                        <li class="list-group-item">Close Account </span></li>
+                        <a href='#' class='settings-list-item-link'><li class="list-group-item list-item-first">Report Abuse</li></a>
+                        <a href='#' class='settings-list-item-link'><li class="list-group-item">Terms and Agreements</li></a>
+                        <a href='#' class='settings-list-item-link'><li class="list-group-item">Privacy Policy </li></a>
+                        <a href='#' class='settings-list-item-link'><li class="list-group-item">Contact Us </span></li></a>
+                        <a href='#' class='settings-list-item-link'><li class="list-group-item">Close Account </span></li></a>
 
                     </ul>
             </div>
@@ -44,5 +51,6 @@
     </div>
     </div>
 </div>
+
   </body>
 </html>
