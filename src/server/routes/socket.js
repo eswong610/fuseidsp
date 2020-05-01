@@ -42,6 +42,7 @@ module.exports = function () {
         if (rooms[req.body.formroom] != null) {
             return res.redirect('/rooms')
         }
+        console.log(req.body)
         rooms[req.body.formroom] = { users: {} }
 
         //Sends message that new room is created
@@ -49,16 +50,17 @@ module.exports = function () {
         res.redirect(req.body.formroom);
 
         let io = req.app.get('socketio');
-        
         io.emit('room-created', req.body.formroom)
 
     })
 
     router.get('/:room', (req,res)=>{
-        // if (rooms[req.params.room] == null) {
-        //     res.redirect('rooms')
-        // }
-        res.redirect('/messaging')//, {roomName:req.params.room})
+        if (rooms[req.params.room] == null) {
+            res.redirect('rooms')
+        }
+        res.render('messaging', {
+            roomName: req.params.room
+        })
     })
 
 

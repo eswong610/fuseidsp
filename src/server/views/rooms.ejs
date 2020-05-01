@@ -15,12 +15,13 @@
         <% }) %>
 
     </div>
-    <form action='/socket/rooms' method='POST'>
+    <form class='room-form' action='/socket/rooms' method='POST'>
         <input type='text' name='formroom' required />
         <button type='submit'>Make new room</button>
     </form>
 
     <script defer src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script  src="/js/messaging.js"></script>
 </body>
 </html>
