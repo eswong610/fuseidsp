@@ -52,6 +52,7 @@
 .user-img-content-container{
     background: linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
     min-height: 100vh;
+    justify-content: center
 }
 
 .instagram-link-container a:hover{
@@ -138,6 +139,8 @@ figcaption{
     .user-img-content-container{
         background: none;
         min-height: 100vh;
+        justify-content: flex-start;
+        
         
     }
 

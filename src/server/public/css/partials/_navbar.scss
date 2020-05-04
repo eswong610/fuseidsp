@@ -3,3 +3,15 @@
     margin-top:0.5rem;
 }
 
+
+
+header a{
+    text-decoration: none;
+    color: black;
+
+    &:hover{
+        text-decoration: none;
+        color: rgba(255,120,171,1);
+    }
+}
+
