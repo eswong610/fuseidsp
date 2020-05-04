@@ -1,0 +1,21 @@
+@import 'partials/_navbar';
+
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    
+}
+
+.custom-carousel-btns{
+    height: 5rem; 
+    width: 5rem; 
+    margin-top: 12rem; 
+}
+
+.custom-img-content{
+    width: 25rem;
+    height: 25rem;
+    overflow-y: hidden;
+}

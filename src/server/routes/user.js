@@ -3,11 +3,15 @@ const router = express.Router();
 
 module.exports = function () {
 
-    router.get('/usertest', (req,res)=>{
-        res.render('profile/user_profile')
+    router.get('/find-people', (req,res)=>{
+        res.render('profile/find-people')
     })
 
-    router.get('/personal', (req,res)=>{
+    router.get('/messages', (req,res)=>{
+        res.render('matched-message')
+    })
+
+    router.get('/profile', (req,res)=>{
         res.render('profile/personal_profile')
     })
 

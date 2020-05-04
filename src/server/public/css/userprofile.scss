@@ -6,8 +6,12 @@
 }
 
 .page-container{
-    height: 100vh;
-    overflow-y: hidden;
+    // height: 100vh;
+    overflow-y: scroll;
+}
+
+.mobile-heading-text{
+    display:none;
 }
 
 .right-image-container{
@@ -19,6 +23,7 @@
 .list-group-item{
     border-right: none;
     border-left: none;
+    background: transparent
     
 }
 .list-item-first{
@@ -30,9 +35,6 @@
     width:25rem;
     height: 25rem;
     object-fit: cover;
-    
-    
-    
 }
 
 .image-content-container{
@@ -50,6 +52,7 @@
 .user-img-content-container{
     background: linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
     min-height: 100vh;
+    justify-content: center
 }
 
 .instagram-link-container a:hover{
@@ -64,7 +67,28 @@
 
 figcaption{
     color: white;
+    text-align: center;
+    background:linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
 }
+
+.settings-list-item-link{
+    color: black;
+    text-decoration: none;
+    :hover {
+        color:white;
+        text-decoration-line: none;
+        background: rgba(138, 209, 241, 1)
+    }
+
+    :visited{
+        color:white;
+        background: rgba(138, 209, 241, 1);
+    }
+   
+}
+
+
+
 
 .custom-active{
     background-color: rgba(138,209,241,1);
@@ -74,3 +98,72 @@ figcaption{
     z-index:2;
     color: white;
 }
+
+.change-picture-container{
+    display:flex;
+    flex-direction: column
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    // body {
+    //   //background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+    //   //background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+    // }
+
+    .page-container{
+        display:flex;
+        flex-direction: column;
+        background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+    }
+
+    .mobile-heading-text{
+        display: block;
+    }
+    .change-picture-container{
+        width: 100%;
+        display:flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-evenly;
+
+        .btn{
+            margin:1rem;
+        }
+        
+        
+    }
+
+    .user-img-content-container{
+        background: none;
+        min-height: 100vh;
+        justify-content: flex-start;
+        
+        
+    }
+
+    .user-profile-img{
+        width:25rem;
+        height: 25rem;
+        object-fit: cover;
+        
+    }
+
+    .user-content-container{
+        
+        bottom:3rem;
+
+        h5{
+            display:none;
+        }
+    }
+
+    .prsnl-profile-content-big-container{
+        flex-direction: column;
+        align-items: center
+    }
+
+    
+  }
