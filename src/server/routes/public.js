@@ -6,17 +6,17 @@ const passport = require('passport')
 const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
 
 
+
+
 module.exports = function(){
+
+
+    // function testfunc() {
+    //     console.log('hello');
+    // }
     // restrict routes 
-    function ensureAuthenticated(req, res, next) {
-        if (req.isAuthenticated()) {
-            console.log(`from if statement`, req.isAuthenticated())
-                return next(); 
-            } else{
-                console.log(`from else`, req.isAuthenticated())
-                res.redirect('/')
-            }
-        }
+    
+
 
     router.get('/', (req, res)=>{  
         
