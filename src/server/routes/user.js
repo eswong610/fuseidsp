@@ -1,17 +1,25 @@
 const express= require('express');
 const router = express.Router();
+const { ensureAuthenticated } = require('./public-controller')
+// const ensureAuthenticated = public.ensureAuthenticated
 
 module.exports = function () {
 
-    router.get('/usertest', (req,res)=>{
-        res.render('profile/user_profile')
+    router.get('/find-people', ensureAuthenticated, (req,res)=>{
+
+        res.render('profile/find-people')
     })
 
-    router.get('/personal', (req,res)=>{
+    router.get('/messages', ensureAuthenticated, (req,res)=>{
+        res.render('matched-message')
+    })
+
+    router.get('/profile', ensureAuthenticated, (req,res)=>{
+
         res.render('profile/personal_profile')
     })
 
-    router.get('/settings', (req,res)=>{
+    router.get('/settings', ensureAuthenticated, (req,res)=>{
         res.render('profile/settings')
     })
 

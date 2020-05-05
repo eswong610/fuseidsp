@@ -16,13 +16,13 @@
   <body>
       <h1> MESAGES </h1>
     <ul id="messages"></ul>
-    <form action="">
+    <form class='msg-form' action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script>
+    <!-- <script>
       $(function () {
         
         //var socket = io();
@@ -40,7 +40,7 @@
             $('#messages').append($('<li>').text(fullmsg));
         });
       });
-    </script>
-    
+    </script> -->
+    <script  src="/js/messaging.js"></script>
   </body>
 </html>
