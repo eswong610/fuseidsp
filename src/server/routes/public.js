@@ -32,6 +32,11 @@ module.exports = function(){
         })(req, res, next); 
       }); 
 
+    router.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
+
     
     router.get('/signup', (req,res)=>{
         res.render('signup_1_1', {
@@ -45,11 +50,15 @@ module.exports = function(){
 
        if (!name || !addressInp || !usernameInp || !passwordInp || !passwordConfirmInp) {
            errors.push({msg: 'Please fill in all fields'})
+           res.render('signup_1_1', {
+               errors: errors
+           })
        }
 
     //    check passwords 
        if (passwordInp.length < 8) {
            errors.push({ msg: 'Password must be 8 characters or longer'})
+           
        }
        if (passwordInp !== passwordConfirmInp) {
             errors.push({ msg: 'Passwords Don\'t Match'})
@@ -57,7 +66,7 @@ module.exports = function(){
 
        if (errors.length > 0) { 
             console.log(errors);
-            res.render('signup_1', {
+            res.render('signup_1_1', {
                 errors: errors
             })
         }else{

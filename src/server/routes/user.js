@@ -15,7 +15,6 @@ module.exports = function () {
     })
 
     router.get('/profile', ensureAuthenticated, (req,res)=>{
-
         res.render('profile/personal_profile')
     })
 
