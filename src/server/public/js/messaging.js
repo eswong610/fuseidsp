@@ -12,8 +12,8 @@ $(function () {
 
     socket.on('chat message', function(data){
 
-        let fullmsg = `${data.name}: ${data.message}`
-        $('#messages').append($('<li>').text(fullmsg));
+        let fullmsg = `${data.name}: ${data.message}`;
+        $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
     });
 
 
@@ -22,14 +22,16 @@ $(function () {
     //   console.log($('#m').val());
       const message = ($('#m').val());
       let mymessage = `You: ${message}`
-      $('#messages').append($('<li>').text(mymessage))
+      $('#messages').append($('<li>').addClass("user-chat-box").text(mymessage))
+      
+      
       socket.emit('send chat message', message);
       $('#m').val('');
       
     });
 
     socket.on('user-connected',(name)=>{
-        $('#messages').append($('<li>').text(`${name} connected`))
+        $('#messages').append($('<li>').addClass("connection-message").text(`${name} connected`))
     })
 
     //ROOMS (DONT TOUCH )

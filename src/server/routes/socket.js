@@ -91,7 +91,7 @@ module.exports = function () {
                 // });
 
                 socket.on('disconnect',()=>{
-                    socket.removeAllListeners();
+                    
                     console.log('user disconnected')
                 })
 
