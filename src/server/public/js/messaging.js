@@ -3,7 +3,7 @@ $(function () {
     //MESSAGES 
     var socket = io({transports: ['websocket'], upgrade: false});
 
-    const name = prompt('Enter your name')
+    // const name = prompt('Enter your name')
     $('#messages').append($('<li>').text('You joined'))
     socket.emit('new-user', name)
 
@@ -15,6 +15,7 @@ $(function () {
         let fullmsg = `${data.name}: ${data.message}`
         $('#messages').append($('<li>').text(fullmsg));
     });
+
 
     $('.msg-form').submit(function(e) {
       e.preventDefault(); // prevents page reloading
@@ -38,5 +39,8 @@ $(function () {
         console.log('from socketon room created' + room )
 
     })
+
+
+    
  
   });

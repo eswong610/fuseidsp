@@ -2,45 +2,43 @@
 <html>
   <head>
     <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: 0.5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
+    <%- include ("./partials/head") %>
+    <link rel="stylesheet" type="text/css" href="/css/message.css" />
   </head>
   <body>
-      <h1> MESAGES </h1>
-    <ul id="messages"></ul>
-    <form class='msg-form' action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    <%- include ("./partials/navbar") %>
+    <div class="content-container">
+
+    
+      <div class="matches-container col-md-2">
+        <h3> MESSAGES </h1>
+        <div class="match-one-container">
+        <p>SHaron</p>
+      </div>
+
+    </div>
+
+    <div class='chat-container col-md-10'>
+        <ul id="messages"></ul>
+        <form class='msg-form' action="">
+          <div class="input-container col-md-12">
+              <div class="chat-options-content">
+                <div class="left-buttons">
+                  <button class='btn border'>Idea</button>
+                  <button class='btn border'>emoji</button>
+                </div>
+                <button class='btn custom-send-btn'>Send</button>
+              </div>
+              <textarea rows=4 id="m" autocomplete="off"></textarea>
+          </div>
+        </form>
+    </div>
+
+    </div>
 
     <script defer src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script>
-      $(function () {
-        
-        //var socket = io();
-        var socket = io({transports: ['websocket'], upgrade: false});
-        $('form').submit(function(e) {
-          e.preventDefault(); // prevents page reloading
-          console.log($('#m').val());
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-           socket.on('chat message', function(msg){
-             
-             let fullmsg = `${socket.id}: ${msg}`
-            $('#messages').append($('<li>').text(fullmsg));
-        });
-      });
-    </script> -->
+
     <script  src="/js/messaging.js"></script>
   </body>
 </html>

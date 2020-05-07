@@ -168,6 +168,10 @@ module.exports = function(){
         res.render('signup_confirmation');
     })
 
+    // router.get('/testmessage', (req,res)=>{
+    //     res.render('messaging')
+    // })
+
 
     // router.get('/testin333', (req,res)=>{
     //     res.render('messaging');

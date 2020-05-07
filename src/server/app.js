@@ -84,7 +84,6 @@ module.exports = function(){
 
     app.use('/', publicRouter)
     app.use('/', usersRouter)
-    
     app.use('/socket/', socketRouter)
 
 
