@@ -111,7 +111,7 @@ module.exports = function(){
     })
 
     router.get('/ideaprompts', (req,res)=>{
-        res.render('ideaprompt')
+        res.send('ideaprompt')
     })
 
     
