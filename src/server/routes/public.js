@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User').User
+const Prompt = require('../models/Prompt').Prompt
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
+const random = require('mongoose-random');
+
+
 
 
 
@@ -104,6 +108,49 @@ module.exports = function(){
                  
             })
         }
+    })
+
+    router.get('/ideaprompts', (req,res)=>{
+        res.render('ideaprompt')
+    })
+
+    
+
+    router.post('/ideaprompts', (req,res)=>{
+        const {prompt} = req.body;
+        Prompt.findOne({prompt: prompt})
+            .then(data=>{
+                if (data) {
+                    res.send('already exists')
+                }else{
+                    const newPrompt = new Prompt({
+                        prompt: prompt
+                    })
+                    newPrompt.save()
+                    .then(data=>{
+                        console.log(`"${data.prompt}" is saved`)
+                        res.redirect('/ideaprompts')
+                    })
+                    .catch(err=>{
+                        console.log(res.statusCode)
+                        res.redirect('/ideaprompts');
+                     
+                    })
+                }
+            })
+
+    })
+
+    router.get('/randomprompt', (req,res)=>{
+        // Prompt.findOne({
+        //     prompt: 'How is your day?'
+        // })
+        // .then(data=>{console.log(data); res.send('benice')})
+        Prompt.findOneRandom((err,data)=>{
+            if (err) throw err;
+            console.log(data);
+            res.send('is it really random')
+        })
     })
 
     // router.get('/signup', (req,res)=>{
