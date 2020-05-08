@@ -67,6 +67,9 @@ header a:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
   background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
   min-height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .instagram-link-container a:hover {
@@ -158,6 +161,9 @@ figcaption {
   .user-img-content-container {
     background: none;
     min-height: 100vh;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
   .user-profile-img {
     width: 25rem;

@@ -44,7 +44,7 @@ module.exports = function(){
     
     // cors origin URL - Allow inbound traffic from origin
     corsOptions = {
-        origin: "https://sleepy-atoll-32836.herokuapp.com/",
+        origin: "https://fuse2020.herokuapp.com/",
         optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
     app.use(cors(corsOptions));
@@ -84,7 +84,6 @@ module.exports = function(){
 
     app.use('/', publicRouter)
     app.use('/', usersRouter)
-    
     app.use('/socket/', socketRouter)
 
 

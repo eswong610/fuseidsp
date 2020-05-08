@@ -3,6 +3,11 @@ const router = express.Router();
 
 
 module.exports = function () {
+
+    // router.use((req,res,next)=>{
+    //     let io = req.app.get('socketio');
+    //     next();
+    // })
     
     //IT WORKS DNOT TOUCH THIS
     //Socket.io for live chatting.
@@ -86,7 +91,7 @@ module.exports = function () {
                 // });
 
                 socket.on('disconnect',()=>{
-                    socket.removeAllListeners();
+                    
                     console.log('user disconnected')
                 })
 
@@ -104,11 +109,9 @@ module.exports = function () {
         res.render('messaging', { 
             roomName: req.params.room
         })
-
-        // res.render('messaging', {
-        //     roomName: req.params.room
-        // })
     })
+
+    
 
 
 

@@ -1,0 +1,159 @@
+@import 'partials/_navbar';
+
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    
+}
+
+
+.content-container{
+    display:flex; 
+
+}
+
+form {
+ 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+
+    textarea { 
+        border: 1px rgb(180, 180, 180) solid; 
+        padding: 1rem; 
+        height:15rem;
+        width: 100%;
+        
+        
+        &:focus{
+            outline:none;
+        }
+    }
+}
+
+.input-container{
+    display:flex;
+    flex-direction: column;
+    padding:0;
+
+    .chat-options-content{
+        display:flex;
+        justify-content: space-between;
+
+       
+    }
+    
+}
+
+
+#messages { 
+
+    li { 
+        padding: 1rem; 
+    }
+
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.matches-container{
+    background: rgba(138,209,241,1);
+    height: 100vh;
+    padding: 2rem;
+
+}
+
+.chat-container{
+    padding: 0;
+    margin-right: 1rem;
+}
+
+.custom-send-btn{
+    padding: 0.5rem 2.25rem 0.5rem 2.25rem;
+    background-color: rgba(138,209,241,0.8);
+    color: white;
+
+    &:focus{
+        outline:none;
+        box-shadow:none
+    }
+}
+
+.dropdown-menu{
+    min-width: 20rem;
+    border: none;
+
+    .suggestion-links{
+        color: black;
+        text-decoration: none;
+
+        &:hover{
+            color: rgba(138,209,241,1);
+            text-decoration: none;
+        }
+        
+    }
+}
+
+.dropup .dropdown-toggle::after{
+    content: none;
+}
+
+
+.btn{
+    border-radius:0px !important;
+}
+
+
+
+.chat-options-img{
+    width: 3rem;
+}
+
+.chat-smile-img{
+    width:2rem;
+    
+}
+
+
+// Chatboxes 
+
+.user-chat-box{
+    color: black;
+    background:linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
+    min-width: 15rem;
+    max-width: 30rem;
+    float: right;
+    clear:both;
+    border-radius: 2px; 
+    box-shadow: 0.2rem 0.2rem 0.5rem #888888;
+    padding: 10rem;
+    margin:0.25rem;
+    margin-right: 0.5rem;
+}
+
+.other-chat-box{
+    color: white;
+    background-color: rgb(59, 59, 59);
+    min-width: 15rem;
+    max-width: 30rem;
+    border-radius: 2px;
+    box-shadow: 0.2rem 0.2rem 0.5rem #888888;
+    float: left;
+    clear:both;
+    margin:0.25rem;
+}
+
+.connection-message{
+    color: black;
+    margin:0.25rem;
+    text-align: center;
+    clear:both;
+    
+
+}

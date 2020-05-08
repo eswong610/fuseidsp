@@ -1,9 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User').User
+const Prompt = require('../models/Prompt').Prompt
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
+const random = require('mongoose-random');
+
+
+
+
 
 
 
@@ -32,6 +38,11 @@ module.exports = function(){
         })(req, res, next); 
       }); 
 
+    router.get('/logout', function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
+
     
     router.get('/signup', (req,res)=>{
         res.render('signup_1_1', {
@@ -45,11 +56,15 @@ module.exports = function(){
 
        if (!name || !addressInp || !usernameInp || !passwordInp || !passwordConfirmInp) {
            errors.push({msg: 'Please fill in all fields'})
+           res.render('signup_1_1', {
+               errors: errors
+           })
        }
 
     //    check passwords 
        if (passwordInp.length < 8) {
            errors.push({ msg: 'Password must be 8 characters or longer'})
+           
        }
        if (passwordInp !== passwordConfirmInp) {
             errors.push({ msg: 'Passwords Don\'t Match'})
@@ -57,7 +72,7 @@ module.exports = function(){
 
        if (errors.length > 0) { 
             console.log(errors);
-            res.render('signup_1', {
+            res.render('signup_1_1', {
                 errors: errors
             })
         }else{
@@ -93,6 +108,48 @@ module.exports = function(){
                  
             })
         }
+    })
+
+    router.get('/ideaprompts', (req,res)=>{
+        res.render('ideaprompt')
+    })
+
+    
+
+    router.post('/ideaprompts', (req,res)=>{
+        const {prompt} = req.body;
+        Prompt.findOne({prompt: prompt})
+            .then(data=>{
+                if (data) {
+                    res.send('already exists')
+                }else{
+                    const newPrompt = new Prompt({
+                        prompt: prompt
+                    })
+                    newPrompt.save()
+                    .then(data=>{
+                        console.log(`"${data.prompt}" is saved`)
+                        res.redirect('/ideaprompts')
+                    })
+                    .catch(err=>{
+                        console.log(res.statusCode)
+                        res.redirect('/ideaprompts');
+                     
+                    })
+                }
+            })
+
+    })
+
+    router.get('/randomprompt', (req,res)=>{
+        Prompt.findRandom({},{},{limit:3}, (err,data)=>{
+            if (err) throw err;
+            console.log(data);
+            //data[i]['prompt]
+            res.render('randomprompt', {
+              prompts: data  
+            })
+        })
     })
 
     // router.get('/signup', (req,res)=>{
@@ -158,6 +215,10 @@ module.exports = function(){
      router.get('/signup_confirmation', (req,res)=>{
         res.render('signup_confirmation');
     })
+
+    // router.get('/testmessage', (req,res)=>{
+    //     res.render('messaging')
+    // })
 
 
     // router.get('/testin333', (req,res)=>{
