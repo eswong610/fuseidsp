@@ -7,10 +7,20 @@ const User = require('../models/User').User
 module.exports = function () {
 
     router.get('/find-people', ensureAuthenticated, (req,res)=>{
-        User.findRandom({},{},{limit: 5}, (err, data)=>{
+        User.findRandom({},{},{limit:100},(err, data)=>{
             if (err) throw err;
+            //filters out user logged in 
+            const otherpeople = [];
+            for (i=0; i<data.length; i++) {
+                console.log(data[i]['name'])
+                if (data[i]['username'] !== req.user.username){
+                    otherpeople.push(data[i]);
+                }
+            }
+
+            console.log(otherpeople);
             res.render('profile/find-people', {
-                profiles: data
+                profiles: otherpeople,
             })
         })
     })

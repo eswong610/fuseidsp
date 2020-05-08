@@ -12,12 +12,28 @@
         <%- include ("../partials/navbar") %>
 
         <div class="page-main-content col-md-12 d-flex">
-        <div class="col-md-1">
-            <h2> filter</h2>
+        <div class="col-md-3">
+            <div class="pos-f-t">
+                <nav class="navbar">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span><h4>FILTER ✂️</h4></span>
+                    </button>
+                  </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                  <div class="bg-light p-4">
+                    <h4 class="">Collapsed content</h4>
+                    <span class="text-muted">Toggleable via the navbar brand.</span>
+                  </div> 
+                </div>
+                
+              </div>
         </div>
 
         <!-- carousel -->
-        <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-11" data-ride="carousel" data-interval="false">
+        <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-9" data-ride="carousel" data-interval="false" data-wrap='false'>
+            <div class="profile-button text-center">
+                <a href='/profile'><button type='button' class='btn btn-outline-info pr-5 pl-5 mb-3'>Profile</button></a>
+            </div>
                 <div class="carousel-inner">
                     <div class="carousel-content col-md-12 text-center">
 
@@ -46,8 +62,8 @@
 
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
-                        <button class='btn btn-outline-primary m-2' data-slide="next" href="#profile-carousel">Thumbs up </button>
-                        <button class='btn btn-outline-primary m-2' data-slide="next" href="#profile-carousel">Thumbs down </button>
+                        <button class='btn btn-primary btn-lg m-2' data-slide="next" href="#profile-carousel">👍</button>
+                        <button class='btn btn-primary btn-lg m-2' data-slide="next" href="#profile-carousel">👎</button>
                     </div>
                 </div>
 
