@@ -111,15 +111,8 @@ module.exports = function(){
     })
 
     router.get('/ideaprompts', (req,res)=>{
-        res.send('ideaprompt')
-    })
-
-    router.get('/ideaprompt', (req,res)=>{
         res.render('ideaprompt')
     })
-
-
-    
 
     router.post('/ideaprompts', (req,res)=>{
         const {prompt} = req.body;
