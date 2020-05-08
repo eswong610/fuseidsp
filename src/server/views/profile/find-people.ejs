@@ -28,24 +28,26 @@
                             </figure>
                           </div>
 
-                          <div class="carousel-item ">
-                              <figure>
-                                  <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1544460848-32344b7004ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80" alt="Second slide">
-                                  <figcaption>More ducks</figcaption>
-                              </figure>
-                          </div>
+                          <% for (i in profiles) { %>
+                            <div class="carousel-item ">
+                                <figure>
+                                    <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1544460848-32344b7004ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80" alt="Second slide">
+                                    <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %></figcaption>
+                                </figure>
+                            </div>
+                          <% } %>
 
-                          <div class="carousel-item ">
+                          <!-- <div class="carousel-item ">
                               <figure>
                                   <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1442689859438-97407280183f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Third slide">
                                   <figcaption> Tree 25</figcaption>
                               </figure>
-                          </div>
+                          </div> -->
 
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
-                        <button class='btn btn-outline-primary m-2'>Thumbs up </button>
-                        <button class='btn btn-outline-primary m-2'>Thumbs down </button>
+                        <button class='btn btn-outline-primary m-2' data-slide="next" href="#profile-carousel">Thumbs up </button>
+                        <button class='btn btn-outline-primary m-2' data-slide="next" href="#profile-carousel">Thumbs down </button>
                     </div>
                 </div>
 
@@ -55,10 +57,10 @@
                     <span class="sr-only">Previous</span>
                 </a> -->
 
-                <a class="carousel-control-next custom-carousel-btns" href="#profile-carousel" role="button" data-slide="next">
+                <!-- <a class="carousel-control-next custom-carousel-btns" href="#profile-carousel" role="button" data-slide="next">
                     <span aria-hidden="true" style='filter:invert();'> Next</span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    
+                </a> -->
           </div>
         </div>
     </div>

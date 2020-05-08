@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/css/message.css" />
   </head>
   <body>
-    <%- include ("./partials/navbar") %>
-    <div class="content-container">
-
+    <div class="content-container-with-nav">
+      <%- include ("./partials/navbar") %>
+      <div class="content-container">
     
       <div class="matches-container col-md-2">
         <h3> MESSAGES </h1>
@@ -31,7 +31,9 @@
     </div>
 
     <div class='chat-container col-md-10'>
-        <ul id="messages"></ul>
+        <div class="chat-msgs-container ">
+          <ul id="messages"></ul>
+        </div>
         <form class='msg-form' action="">
           <div class="input-container col-md-12">
               <div class="chat-options-content">
@@ -39,9 +41,17 @@
                   <button class='btn border dropdown-toggle p-0' data-toggle='dropdown' aria-haspopup="true" aria-expanded="false" type="button"><img class='chat-options-img'src='/assets/prompt-icon.svg'></button> 
                   <div class="dropdown-menu">
                     <ul class='list-group'>
-                      <a href='##' class='suggestion-links'><li class='list-group-item'>can i make this a link</li></a>
+
+                      <% for (i in prompts) { %>
+                        <% count = 1 %>
+                          <a href='#' class='suggestion-links'><li class='list-group-item'><%= prompts[i]['prompt'] %></li></a>
+                        
+                      <% } %>
+
+
+                      <!-- <a href='##' class='suggestion-links'><li class='list-group-item'>can i make this a link</li></a>
                       <a href='#sample' class='suggestion-links'><li class='list-group-item'>Hurrah is a link!!!</li></a>
-                      <a href='##' class='suggestion-links'><li class='list-group-item'>Now ineed more ocntent to fix this min height thing or it just might work because too long isnt that great anwyas </li></a>
+                      <a href='##' class='suggestion-links'><li class='list-group-item'>Now ineed more ocntent to fix this min height thing or it just might work because too long isnt that great anwyas </li></a> -->
                     </ul>  
                     </div>
                   <!-- <button class='btn border' type='button'><img src='/assets/smiley-emoticon.svg'></button> -->
@@ -55,6 +65,7 @@
     </div>
 
     </div>
+  </div>
 
     <script defer src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -4,7 +4,7 @@ $(function () {
     var socket = io({transports: ['websocket'], upgrade: false});
 
     // const name = prompt('Enter your name')
-    $('#messages').append($('<li>').text('You joined'))
+    $('#messages').append($('<li>').addClass("text-center").text(Date()))
     socket.emit('new-user', name)
 
     // $('#messages').append($('<li>').text(''))
@@ -31,6 +31,7 @@ $(function () {
     });
 
     socket.on('user-connected',(name)=>{
+        
         $('#messages').append($('<li>').addClass("connection-message").text(`${name} connected`))
     })
 
@@ -43,6 +44,16 @@ $(function () {
     })
 
 
+    $('.suggestion-links').click(function (){
+      const promptText = $(this).children().text()      
+      socket.emit('use-prompt', promptText);
+      
+    })
+
+    socket.on('user-prompt', (data)=>{
+      console.log('hello from socket.on' + data.prompt)
+      $('#messages').append($('<li>').addClass("connection-message").text(`Prompt: ${data.prompt}`))
+    })
     
  
   });

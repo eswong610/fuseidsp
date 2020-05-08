@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const random = require('mongoose-simple-random');
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -38,6 +39,8 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     }
 })
+
+UserSchema.plugin(random)
 
 const User = mongoose.model('User', UserSchema);
 module.exports = { User };

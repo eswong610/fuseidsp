@@ -1,15 +1,18 @@
 const express= require('express');
 const router = express.Router();
-const { ensureAuthenticated } = require('./public-controller')
+const { ensureAuthenticated } = require('./public-controller');
+const User = require('../models/User').User
 
-
-const loggedIn = require('../../config/passport')
 
 module.exports = function () {
 
     router.get('/find-people', ensureAuthenticated, (req,res)=>{
-        
-        res.render('profile/find-people')
+        User.findRandom({},{},{limit: 5}, (err, data)=>{
+            if (err) throw err;
+            res.render('profile/find-people', {
+                profiles: data
+            })
+        })
     })
 
     router.get('/messages', ensureAuthenticated, (req,res)=>{
