@@ -142,14 +142,13 @@ module.exports = function(){
     })
 
     router.get('/randomprompt', (req,res)=>{
-        // Prompt.findOne({
-        //     prompt: 'How is your day?'
-        // })
-        // .then(data=>{console.log(data); res.send('benice')})
-        Prompt.findOneRandom((err,data)=>{
+        Prompt.findRandom({},{},{limit:3}, (err,data)=>{
             if (err) throw err;
             console.log(data);
-            res.send('is it really random')
+            //data[i]['prompt]
+            res.render('randomprompt', {
+              prompts: data  
+            })
         })
     })
 
