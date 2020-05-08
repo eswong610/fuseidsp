@@ -5,7 +5,7 @@ const Prompt = require('../models/Prompt').Prompt
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
-const random = require('mongoose-random');
+
 
 
 
@@ -112,6 +112,10 @@ module.exports = function(){
 
     router.get('/ideaprompts', (req,res)=>{
         res.send('ideaprompt')
+    })
+
+    router.get('/ideaprompt', (req,res)=>{
+        res.render('ideaprompt')
     })
 
 
