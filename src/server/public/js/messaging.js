@@ -3,7 +3,7 @@ $(function () {
     //MESSAGES 
     var socket = io({transports: ['websocket'], upgrade: false});
 
-    const name = prompt('Enter your name')
+    // const name = prompt('Enter your name')
     $('#messages').append($('<li>').text('You joined'))
     socket.emit('new-user', name)
 
@@ -12,23 +12,26 @@ $(function () {
 
     socket.on('chat message', function(data){
 
-        let fullmsg = `${data.name}: ${data.message}`
-        $('#messages').append($('<li>').text(fullmsg));
+        let fullmsg = `${data.name}: ${data.message}`;
+        $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
     });
+
 
     $('.msg-form').submit(function(e) {
       e.preventDefault(); // prevents page reloading
     //   console.log($('#m').val());
       const message = ($('#m').val());
       let mymessage = `You: ${message}`
-      $('#messages').append($('<li>').text(mymessage))
+      $('#messages').append($('<li>').addClass("user-chat-box").text(mymessage))
+      
+      
       socket.emit('send chat message', message);
       $('#m').val('');
       
     });
 
     socket.on('user-connected',(name)=>{
-        $('#messages').append($('<li>').text(`${name} connected`))
+        $('#messages').append($('<li>').addClass("connection-message").text(`${name} connected`))
     })
 
     //ROOMS (DONT TOUCH )
@@ -38,5 +41,8 @@ $(function () {
         console.log('from socketon room created' + room )
 
     })
+
+
+    
  
   });

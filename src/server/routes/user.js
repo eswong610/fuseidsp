@@ -1,12 +1,14 @@
 const express= require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('./public-controller')
-// const ensureAuthenticated = public.ensureAuthenticated
+
+
+const loggedIn = require('../../config/passport')
 
 module.exports = function () {
 
     router.get('/find-people', ensureAuthenticated, (req,res)=>{
-
+        
         res.render('profile/find-people')
     })
 
@@ -15,8 +17,12 @@ module.exports = function () {
     })
 
     router.get('/profile', ensureAuthenticated, (req,res)=>{
-
-        res.render('profile/personal_profile')
+        console.log(req.user)
+        res.render('profile/personal_profile', {
+            username,
+            age,
+            name
+        }=req.user)
     })
 
     router.get('/settings', ensureAuthenticated, (req,res)=>{

@@ -3,16 +3,19 @@ const bcrypt = require('bcrypt')
 //Load user model
 const User = require('../server/models/User').User;
 
+
 module.exports = function (passport) {
+
     passport.use(
         new LocalStrategy ((username, password, done)=>{
             
             //match User
-            console.log(User);
+            
             User.findOne({  
                 username: username 
             }).then((user)=>{
-                    console.log('from passport config' + user)
+                    console.log('from passport config ' + user);
+
                     if (!user) {
                         return done(null, false, {message: 'That username does not exist'});
                     }
@@ -22,6 +25,7 @@ module.exports = function (passport) {
                         if (err) {
                             res.render('error', {err:err}) 
                         }else if (result) {
+                            
                             return done(null, user)
                         }else{
                             return done(null, false, {msg: 'Password does not match'})
@@ -43,4 +47,5 @@ module.exports = function (passport) {
           done(err, user);
         });
       });
+
 }
