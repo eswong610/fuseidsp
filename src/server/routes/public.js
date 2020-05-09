@@ -141,12 +141,12 @@ module.exports = function(){
     })
 
     router.get('/randomprompt', (req,res)=>{
-        Prompt.findRandom({},{},{limit:3}, (err,data)=>{
+        User.findRandom({},{},{limit:3}, (err,data)=>{
             if (err) throw err;
             console.log(data);
             //data[i]['prompt]
-            res.render('randomprompt', {
-              prompts: data  
+            res.render('profile/find-people', {
+              profiles: data  
             })
         })
     })

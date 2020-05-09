@@ -171,4 +171,10 @@ form textarea:focus {
   text-align: center;
   clear: both;
 }
+
+.userpp {
+  border-radius: 50% 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+}
 /*# sourceMappingURL=message.css.map */

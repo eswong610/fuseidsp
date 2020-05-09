@@ -12,17 +12,53 @@
         <%- include ("../partials/navbar") %>
 
         <div class="page-main-content col-md-12 d-flex">
-        <div class="col-md-3">
+        <div class="col-md- pl-0 ml-0">
             <div class="pos-f-t">
-                <nav class="navbar">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span><h4>FILTER ✂️</h4></span>
+                <nav class="navbar pl-0">
+                    <button class="navbar-toggler pl-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span><h4 >FILTER ✂️</h4></span>
                     </button>
                   </nav>
                 <div class="collapse" id="navbarToggleExternalContent">
-                  <div class="bg-light p-4">
-                    <h4 class="">Collapsed content</h4>
-                    <span class="text-muted">Toggleable via the navbar brand.</span>
+                  <div class="bg-light p-2">
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch1" class='mr-2'>Smoking</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+                      
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                          <label for="customSwitch2" class='mr-2'>Active</label>
+                          <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2'>Lorem</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2'>Ipsum</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2' >Text</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                        <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                            <label for="customSwitch2" class='mr-2' >Religious: catholic</label>
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                        </div>
+
+
+
+                    <!-- <span class="text-muted">Smoking</span>
+                    <span class="text-muted">Active</span>
+                    <span class="text-muted">Sample</span>
+                    <span class="text-muted">Lorem</span>
+                    <span class="text-muted">Ipsum</span>
+                    <span class="text-muted">Chat</span> -->
                   </div> 
                 </div>
                 
@@ -32,25 +68,31 @@
         <!-- carousel -->
         <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-9" data-ride="carousel" data-interval="false" data-wrap='false'>
             <div class="profile-button text-center">
-                <a href='/profile'><button type='button' class='btn btn-outline-info pr-5 pl-5 mb-3'>Profile</button></a>
+                <% let profilebtn%>
+                <form method='GET' action='/'>
+                    <button type='submit' class='btn btn-outline-info pr-5 pl-5 mb-3'>Profile</button>
+                </form>
             </div>
                 <div class="carousel-inner">
                     <div class="carousel-content col-md-12 text-center">
+
 
                         <div class="carousel-item active">
                             <figure>
                                 <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1525538182201-02cd1909effb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="First slide">
                                 <figcaption>Duck 25</figcaption>
                             </figure>
-                          </div>
+                        </div>
 
                           <% for (i in profiles) { %>
+                            
                             <div class="carousel-item ">
                                 <figure>
                                     <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1544460848-32344b7004ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80" alt="Second slide">
                                     <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %></figcaption>
                                 </figure>
                             </div>
+                           
                           <% } %>
 
                           <!-- <div class="carousel-item ">
@@ -62,7 +104,9 @@
 
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
-                        <button class='btn btn-primary btn-lg m-2' data-slide="next" href="#profile-carousel">👍</button>
+                        <form method='POST' action='/liked_profile'>
+                            <button class='btn btn-primary btn-lg m-2 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
+                        </form>
                         <button class='btn btn-primary btn-lg m-2' data-slide="next" href="#profile-carousel">👎</button>
                     </div>
                 </div>
@@ -80,5 +124,7 @@
           </div>
         </div>
     </div>
+
+    <script src='/js/find-people.js'></script>
 </body>
 </html>

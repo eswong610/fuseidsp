@@ -18,3 +18,7 @@
     height: 25rem;
     overflow-y: hidden;
 }
+
+.navbar-toggler:focus{
+    outline: none;
+}

@@ -13,8 +13,11 @@ $(function () {
     socket.on('chat message', function(data){
 
         let fullmsg = `${data.name}: ${data.message}`;
+        // $('#messages').append($('<div>').addClass('user-pp-container d-flex'));
         $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
-    });
+        
+        console.log(fullmsg)
+      });
 
 
     $('.msg-form').submit(function(e) {
@@ -22,9 +25,17 @@ $(function () {
     //   console.log($('#m').val());
       const message = ($('#m').val());
       let mymessage = `You: ${message}`
-      $('#messages').append($('<li>').addClass("user-chat-box").text(mymessage))
-      
-      
+      // $('#messages').append($('<li>').addClass("user-chat-box").text(mymessage))
+
+
+      $('#messages').append([
+        $('<div/>', {'class': 'user-pp-container d-flex justify-content-start flex-row-reverse' }).append([
+          $('<img/>', {'src': 'https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")', 'class':'userpp'}),
+          ($('<li>').addClass("user-chat-box").text(mymessage))
+        ])
+      ])
+
+      // $('.user-chat-box').prepend('<img class="userpp" src="https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")" />')
       socket.emit('send chat message', message);
       $('#m').val('');
       

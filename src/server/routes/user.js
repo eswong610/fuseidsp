@@ -38,9 +38,38 @@ module.exports = function () {
         }=req.user)
     })
 
+
+    //other users profile - found by username
+    router.get('/:username', (req,res)=>{
+        User.findOne({username: req.params.username})
+            .then((data)=>{
+                console.log(data);
+                res.render('profile/user_profile', {
+                    data: data
+                })
+            })
+        // res.send(req.params.username + 'this is the profile you\'re looking for')
+    })
+
     router.get('/settings', ensureAuthenticated, (req,res)=>{
         res.render('profile/settings')
     })
+
+    router.get('/help', (req,res)=>{
+        res.render('help')
+    })
+
+    router.get('/faq', (req,res)=>{
+        res.render('faq')
+    })
+
+
+    router.get('/privacy-policy', (req,res)=>{
+        res.render('privacy-policy')
+    })
+
+
+
 
     return router
 }
