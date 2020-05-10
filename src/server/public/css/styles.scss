@@ -18,7 +18,7 @@ p {
     align-items: center;
     justify-content: center;
 }
-
+ 
 #app {
     width: 100vw;
     height: 100vh;
@@ -27,7 +27,7 @@ p {
 #blue_section {
     height: 100vh;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(138, 209, 241, 1) );
-    flex: 5;
+    
 }
 
 #blue_section img {
@@ -170,7 +170,7 @@ p {
     width :400px;
 }
 
-#diectionsText{
+#directionsText{
     position: absolute;
     right: 120px;
     top:70px;
@@ -178,10 +178,17 @@ p {
 
 
 @media only screen and (max-width: 900px) {
-    body {
-      background: $background-gradient ;
-    }
     #blue_section{
-        display: none;
+        display:none;
     }
-  }
+
+    body{
+        background: $background-gradient;
+    }
+
+    #white_heading{
+        text-align: center;
+    }
+
+
+}

@@ -65,6 +65,10 @@
     color: black
 }
 
+.responsive-text{
+    display:none;
+}
+
 figcaption{
     color: white;
     text-align: center;
@@ -104,6 +108,9 @@ figcaption{
     flex-direction: column
 }
 
+.user-content-container{
+    width:100%;
+}
 
 
 
@@ -121,7 +128,10 @@ figcaption{
 
     .mobile-heading-text{
         display: block;
+        margin-top:3rem;
     }
+
+
     .change-picture-container{
         width: 100%;
         display:flex;
@@ -131,11 +141,35 @@ figcaption{
 
         .btn{
             margin:1rem;
-        }
-        
+        }  
+    }
+
+    .user-img-content-container{
+        min-height:20rem !important ;
+    }
+
+    .user-content-name{
+        display:none;
+    }
+
+    .profile-bio-text{
+        text-align: center;
         
     }
 
+    .responsive-text{
+        display:block;
+        
+        top: 2rem;
+        text-align: center;
+        padding: 2rem;
+        margin:1rem;
+    }
+
+    .change-picture-container{
+        display:flex;
+        flex-direction: row !important;
+    }
     .user-img-content-container{
         background: none;
         min-height: 100vh;
@@ -164,6 +198,17 @@ figcaption{
         flex-direction: column;
         align-items: center
     }
-
+// SETTINGS PAGE
+    .settings-image{
+        display:none!important;
+    }
     
+    .settings-update-image-btn{
+        display:none!important;
+    }
+
+    .settings-page-container{
+        height: 100vh !important;
+    }
+
   }

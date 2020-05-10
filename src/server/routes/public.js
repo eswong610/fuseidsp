@@ -157,5 +157,10 @@ module.exports = function(){
         res.render('signup_confirmation');
     })
 
+    //TEST ROUTES For easier times
+    // router.get('/sampleexplore', (req,res)=>{
+    //     res.render('profile/find-people')
+    // })
+
     return router
 }

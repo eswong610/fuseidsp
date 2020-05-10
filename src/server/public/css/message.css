@@ -13,6 +13,23 @@ header a:hover {
   color: #ff78ab;
 }
 
+.responsive-header-background {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .responsive-header-background {
+    background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+    background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  }
+  .webpage-header {
+    display: none !important;
+  }
+  .responsive-header {
+    display: block;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;

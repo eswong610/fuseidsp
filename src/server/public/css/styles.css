@@ -29,9 +29,6 @@ p {
   height: 100vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#8ad1f1));
   background-image: linear-gradient(to bottom, white, #8ad1f1);
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
 }
 
 #blue_section img {
@@ -192,19 +189,22 @@ p {
   width: 400px;
 }
 
-#diectionsText {
+#directionsText {
   position: absolute;
   right: 120px;
   top: 70px;
 }
 
 @media only screen and (max-width: 900px) {
+  #blue_section {
+    display: none;
+  }
   body {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
     background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
   }
-  #blue_section {
-    display: none;
+  #white_heading {
+    text-align: center;
   }
 }
 /*# sourceMappingURL=styles.css.map */

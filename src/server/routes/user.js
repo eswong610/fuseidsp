@@ -34,13 +34,14 @@ module.exports = function () {
         res.render('profile/personal_profile', {
             username,
             age,
-            name
+            name,
+            bio
         }=req.user)
     })
 
 
     //other users profile - found by username
-    router.get('/:username', (req,res)=>{
+    router.get('/users/:username', (req,res)=>{
         User.findOne({username: req.params.username})
             .then((data)=>{
                 console.log(data);
@@ -51,22 +52,40 @@ module.exports = function () {
         // res.send(req.params.username + 'this is the profile you\'re looking for')
     })
 
+
+    router.post('/bio-update', (req,res)=>{
+        User.updateOne(
+            {username : req.user.username}, 
+            {$set:{'bio': req.body.biotext}}, 
+            {upsert:true})
+            .then((data)=>{
+                console.log(`updated ${data}`)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+           
+        res.redirect('/profile')
+    })
+
     router.get('/settings', ensureAuthenticated, (req,res)=>{
         res.render('profile/settings')
     })
 
     router.get('/help', (req,res)=>{
-        res.render('help')
+        res.render('profile/help')
     })
 
     router.get('/faq', (req,res)=>{
-        res.render('faq')
+        res.render('profile/faq')
     })
 
 
     router.get('/privacy-policy', (req,res)=>{
-        res.render('privacy-policy')
+        res.render('profile/privacy-policy')
     })
+
+    
 
 
 

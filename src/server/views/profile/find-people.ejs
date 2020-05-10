@@ -12,8 +12,8 @@
         <%- include ("../partials/navbar") %>
 
         <div class="page-main-content col-md-12 d-flex">
-        <div class="col-md- pl-0 ml-0">
-            <div class="pos-f-t">
+        <div class="col-md- pl-0 ml-0 responsive-filter">
+            <div class="pos-f-t filter-dropdown">
                 <nav class="navbar pl-0">
                     <button class="navbar-toggler pl-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span><h4 >FILTER ✂️</h4></span>
@@ -105,9 +105,9 @@
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
                         <form method='POST' action='/liked_profile'>
-                            <button class='btn btn-primary btn-lg m-2 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
+                            <button class='btn btn-primary btn-lg m-2 thumbs' type='submit' data-slide="next" href="#profile-carousel">👍</button>
                         </form>
-                        <button class='btn btn-primary btn-lg m-2' data-slide="next" href="#profile-carousel">👎</button>
+                        <button class='btn btn-primary btn-lg m-2 thumbs' data-slide="next" href="#profile-carousel">👎</button>
                     </div>
                 </div>
 

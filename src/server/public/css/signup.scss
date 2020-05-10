@@ -11,6 +11,12 @@ body{
     height: 100vh
 }
 
+
+.reponsive-section{
+    display:none; 
+
+}
+
 .FormCarousel{
     height: 30rem;
 }
@@ -134,4 +140,75 @@ body{
     margin-top: 3rem;
 }
 
+.repsonsive-back-to-login{
+    display:none;
+}
 
+@media only screen and (max-width: 900px) {
+
+    
+
+    .logo-image-container{
+        display:none;
+    }
+
+    .user-input-container{
+        width: 100%;
+        padding:2rem;
+    }
+
+    .input-md{
+        width: 100%
+    }
+
+    .input-md-preferred{
+        width: 70%;
+    }
+
+    body{
+        background: linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    }
+
+    .header-text{
+        display:none;
+    }
+
+    .carousel-inner{
+        height:100%;
+    }
+
+    .custom-form-container{
+        margin: 0;
+        margin-top: 3rem;
+    }
+
+    .second-custom-form-container{
+        background: transparent;
+        margin: 0;
+        margin-top:3rem;
+    }
+
+    .carousel-indicators{
+        display:none;
+    }
+
+    // .gender-container{
+    //     flex-direction: column;
+    // }
+
+    .custom-carousel-btns{
+        margin-top: 0rem;
+        padding-top:0!important;
+        height:3rem;
+        
+        
+    }
+
+    .repsonsive-back-to-login{
+        display:block;
+        text-align: center;
+    }
+
+    
+
+}

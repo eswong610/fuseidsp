@@ -13,6 +13,23 @@ header a:hover {
   color: #ff78ab;
 }
 
+.responsive-header-background {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .responsive-header-background {
+    background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+    background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  }
+  .webpage-header {
+    display: none !important;
+  }
+  .responsive-header {
+    display: block;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -34,5 +51,24 @@ header a:hover {
 
 .navbar-toggler:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+    background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+  }
+  #profile-carousel {
+    padding: 0;
+  }
+  .carousel-content {
+    padding: 0;
+  }
+  .thumbs {
+    padding: 3rem 4.5rem;
+  }
+  .thumbs {
+    padding: 3rem 4.5rem;
+  }
 }
 /*# sourceMappingURL=find-people.css.map */

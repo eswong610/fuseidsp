@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ("../partials/head") %>
     <link rel="stylesheet" type="text/css" href="css/userprofile.css" />
-    <title>Personal Profile</title>
+    <title>Settings</title>
 </head>
 
 <body>
-    <div class="page-container">
+    <div class="page-container settings-page-container">
     <%- include ("../partials/navbar") %>
     <div class="prsnl-profile-content-big-container d-flex">
 
         
         <div class=" user-img-content-container col-md-4 d-flex flex-column align-items-center">
             <h3 class='mobile-heading-text mb-3 font-weight-bold'>Settings</h3>
-                <div class="user-profile-img">
+                <div class="user-profile-img settings-image">
                         <figure class='user-profile-figure'>
                             <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
                             <figcaption style='background:linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));'>A frogoo</figcaption>
                         </figure>
                 </div> 
                 <div class="change-picture-container mt-5">
-                    <form action='' method=''>
+                    <form action='' method='' class='settings-update-image-btn'>
                         <button class='btn btn-outline-dark btn-lg'type='submit' href='#'>Update Image</button>
                     </form>
                     <form action='/profile' method='GET'>

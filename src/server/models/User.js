@@ -37,6 +37,42 @@ const UserSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    bio: {
+        type: String,
+        maxlength: 250
+    },
+    smoking: {
+        type: Boolean,
+        default: false
+    },
+    active: {
+        type: Boolean,
+        default: false
+    },
+    political: {
+        type: Boolean,
+        default: false
+    },
+    religious: {
+        type: Boolean,
+        default: false
+    },
+    alcohol: {
+        type: Boolean,
+        default: false
+    },
+    traveller: {
+        type: Boolean,
+        default: false
+    },
+    marriage: {
+        type: Boolean,
+        default: false
+    },
+    casual:{
+        type:Boolean,
+        default: true
     }
 })
 

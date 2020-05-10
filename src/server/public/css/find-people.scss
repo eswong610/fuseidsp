@@ -22,3 +22,34 @@
 .navbar-toggler:focus{
     outline: none;
 }
+
+
+
+
+@media only screen and (max-width: 900px) {
+    body{
+        background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    }
+
+    .responsive-filter{
+         
+    }
+
+   
+
+    #profile-carousel{
+        padding:0;
+    }
+
+    .carousel-content{
+        padding:0;
+    }
+
+    .thumbs{
+        padding:3rem 4.5rem;
+    }
+
+    .thumbs{
+        padding:3rem 4.5rem;
+    }
+}

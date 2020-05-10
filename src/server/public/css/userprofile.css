@@ -13,6 +13,23 @@ header a:hover {
   color: #ff78ab;
 }
 
+.responsive-header-background {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .responsive-header-background {
+    background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+    background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  }
+  .webpage-header {
+    display: none !important;
+  }
+  .responsive-header {
+    display: block;
+  }
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -81,6 +98,10 @@ header a:hover {
   color: black;
 }
 
+.responsive-text {
+  display: none;
+}
+
 figcaption {
   color: white;
   text-align: center;
@@ -124,6 +145,10 @@ figcaption {
           flex-direction: column;
 }
 
+.user-content-container {
+  width: 100%;
+}
+
 @media only screen and (max-width: 900px) {
   .page-container {
     display: -webkit-box;
@@ -138,6 +163,7 @@ figcaption {
   }
   .mobile-heading-text {
     display: block;
+    margin-top: 3rem;
   }
   .change-picture-container {
     width: 100%;
@@ -157,6 +183,31 @@ figcaption {
   }
   .change-picture-container .btn {
     margin: 1rem;
+  }
+  .user-img-content-container {
+    min-height: 20rem !important;
+  }
+  .user-content-name {
+    display: none;
+  }
+  .profile-bio-text {
+    text-align: center;
+  }
+  .responsive-text {
+    display: block;
+    top: 2rem;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+  }
+  .change-picture-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
   }
   .user-img-content-container {
     background: none;
@@ -185,6 +236,15 @@ figcaption {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .settings-image {
+    display: none !important;
+  }
+  .settings-update-image-btn {
+    display: none !important;
+  }
+  .settings-page-container {
+    height: 100vh !important;
   }
 }
 /*# sourceMappingURL=userprofile.css.map */
