@@ -32,10 +32,13 @@
     }
 
     .responsive-filter{
-         
+         display: none;
     }
 
-   
+   .nav-filter-dropdown{
+       display:block;
+       margin-left: 1rem;
+   }
 
     #profile-carousel{
         padding:0;

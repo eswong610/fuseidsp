@@ -26,8 +26,8 @@ module.exports = function () {
         })
     })
 
-    router.get('/messages', ensureAuthenticated, (req,res)=>{
-        res.render('matched-message')
+    router.get('/messages', (req,res)=>{
+        res.render('messaging')
     })
 
     router.get('/profile', ensureAuthenticated, (req,res)=>{

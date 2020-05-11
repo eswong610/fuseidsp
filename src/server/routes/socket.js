@@ -4,6 +4,7 @@ const Prompt = require('../models/Prompt').Prompt;
 const { ensureAuthenticated } = require('./public-controller');
 const User = require('../models/User').User;
 const Message = require('../models/Message').Message;
+const Conversation = require('../models/Conversation').Conversation;
 
 
 module.exports = function () {
@@ -48,10 +49,17 @@ module.exports = function () {
     //Chat rooms 
     rooms = {}
 
-    // router.get('/rooms', (req,res)=>{
+    router.get('/rooms', ensureAuthenticated, (req,res)=>{
+        
+        Conversation.find({users: req.user.username})
+            .then((data)=>{
+                rooms[data[0].roomId] = data[0].roomId;
+                console.log(rooms)
+            })
+            .catch((err)=>console.log(err))
        
-    //     res.render('rooms', {rooms:rooms})
-    // })
+        res.render('rooms', {rooms:rooms})
+    })
 
     // router.post('/rooms', (req,res)=>{
     //     if (rooms[req.body.formroom] != null) {
@@ -71,13 +79,22 @@ module.exports = function () {
 
 
     router.get('/:room', ensureAuthenticated, (req,res)=>{
-        console.log(rooms[req.params.rooms])
+        // console.log(rooms[req.params.rooms])
         if (rooms[req.params.room] == null) {
             User.findOne({username: req.user.username})
                 .then((data)=>{
-                    console.log(data['likedpeople'])
                     for (i of data['likedpeople']) {
-                        rooms[i] = i
+                        roomName = i+req.user.username;
+                        rooms[roomName] = i
+                        //Create chat room ids
+                        const newConversation = new Conversation({
+                            roomId: roomName,
+                            users: [req.user.username, i]
+                        })
+
+                        newConversation.save()
+                        .then((data)=>{console.log(data + 'conversation saved')})
+                        .catch(err=>console.log(err));
                     }
                 })
                 .catch((err)=>console.log(err));
