@@ -18,7 +18,7 @@ module.exports = function () {
                 }
             }
 
-            console.log(otherpeople);
+            // console.log(otherpeople);
             res.render('profile/find-people', {
                 profiles: otherpeople,
             })
@@ -30,7 +30,7 @@ module.exports = function () {
     })
 
     router.get('/profile', ensureAuthenticated, (req,res)=>{
-        console.log(req.user)
+        // console.log(req.user)
         res.render('profile/personal_profile', {
             username,
             age,
@@ -66,6 +66,25 @@ module.exports = function () {
             })
            
         res.redirect('/profile')
+    })
+
+    router.post('/liked_profile', (req,res)=>{
+        let likedByUser = req.body.liked_profile;
+        if (likedByUser) {
+            likedByUser = likedByUser.substring(2);
+        // console.log(likedByUser.substring(2))
+        User.updateOne(
+            {username:req.user.username},
+            {$push: {likedpeople: likedByUser}}
+        )
+        .then((data)=>{
+            console.log(`updated ${data}`)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+        // res.redirect('/find-people')
+        }
     })
 
     router.get('/settings', ensureAuthenticated, (req,res)=>{

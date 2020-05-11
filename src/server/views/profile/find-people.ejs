@@ -89,7 +89,7 @@
                             <div class="carousel-item ">
                                 <figure>
                                     <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1544460848-32344b7004ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80" alt="Second slide">
-                                    <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %></figcaption>
+                                    <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %>, @<%= profiles[i]['username'] %></figcaption>
                                 </figure>
                             </div>
                            
@@ -105,9 +105,9 @@
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
                         <form method='POST' action='/liked_profile'>
-                            <button class='btn btn-primary btn-lg m-2 thumbs' type='submit' data-slide="next" href="#profile-carousel">👍</button>
+                            <button class='btn btn-primary btn-lg m-2 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
                         </form>
-                        <button class='btn btn-primary btn-lg m-2 thumbs' data-slide="next" href="#profile-carousel">👎</button>
+                        <button class='btn btn-primary btn-lg m-2 thumbsdown' data-slide="next" href="#profile-carousel">👎</button>
                     </div>
                 </div>
 

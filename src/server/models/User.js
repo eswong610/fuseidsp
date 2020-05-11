@@ -42,6 +42,9 @@ const UserSchema = new mongoose.Schema({
         type: String,
         maxlength: 250
     },
+    likedpeople:{
+        type: Array
+    },
     smoking: {
         type: Boolean,
         default: false
