@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>STATIC MESSAGE </title>
     <%- include ("./partials/head") %>
     <link rel="stylesheet" type="text/css" href="/css/message.css" />
   </head>
@@ -11,15 +11,8 @@
       <div class="content-container">
     
       <div class="matches-container col-md-2">
-        <h3> MESSAGES </h1>
+        <h3> MESSAGES <%= chattingTo %></h1>
         <div class="match-one-container">
-          <div class="room-container">
-            <% Object.keys(rooms).forEach((room)=>{ %>
-                <div><%= room %></div>
-                <a href='/socket/<%= room %>'>Join</a>
-            <% }) %>
-    
-          </div>
 
         <!-- <form class='room-form' action='/socket/rooms' method='POST'>
           <input type='text' name='formroom' required />
@@ -34,7 +27,7 @@
         <div class="chat-msgs-container ">
           <ul id="messages"></ul>
         </div>
-        <form class='msg-form' action="">
+        <form class='msg-form' action="/staticmessage" method="POST">
           <div class="input-container col-md-12">
               <div class="chat-options-content">
                 <div class="left-buttons dropup d-flex">
@@ -57,9 +50,9 @@
                   <!-- <button class='btn border' type='button'><img src='/assets/smiley-emoticon.svg'></button> -->
                   <button class='btn border dropdown-toggle p-2' data-toggle='dropdown' aria-haspopup="true" aria-expanded="false" type="button"><img class='chat-smile-img'src='/assets/smiley-emoticon.svg'></button> 
                 </div>
-                <button class='btn custom-send-btn' type='submit'>Send</button>
+                <button class='btn custom-send-btn' type='submit'>Send </button>
               </div>
-              <textarea rows=4 id="m" autocomplete="off"></textarea>
+              <textarea rows=4 name="message" autocomplete="off"></textarea>
           </div>
         </form>
     </div>
