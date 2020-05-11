@@ -105,17 +105,17 @@ module.exports = function () {
                 socket.on('send chat message', message=>{
                     socket.broadcast.emit('chat message', {message:message, name: users[socket.id]})
                     console.log(`${socket.id} sent ${message}`);
-                    console.log(rooms[req.params.room]); 
-                    const newMessage = new Message({
-                        text: message,
-                        sender: req.user.username,
-                        receiver: rooms[req.params.room] 
-                    })
-                    newMessage.save()
-                    .then(data=>{
-                        console.log(`${data.sender} sent ${data.text} to ${data.receiver}`)
-                    })
-                    .catch(err=>console.log(err))
+                    console.log(rooms[req.params.room]); //comes up undefined
+                    // const newMessage = new Message({
+                    //     text: message,
+                    //     sender: req.user.username,
+                    //     receiver: rooms[req.params.room] 
+                    // })
+                    // newMessage.save()
+                    // .then(data=>{
+                    //     console.log(`${data.sender} sent ${data.text} to ${data.receiver}`)
+                    // })
+                    // .catch(err=>console.log(err))
 
                 })
 

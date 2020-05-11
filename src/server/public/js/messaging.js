@@ -14,9 +14,15 @@ $(function () {
 
         let fullmsg = `${data.name}: ${data.message}`;
         // $('#messages').append($('<div>').addClass('user-pp-container d-flex'));
-        $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
+        // $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
+        $('#messages').append([
+          $('<div/>', {'class': 'user-pp-container d-flex justify-content-start flex-row' }).append([
+            $('<img/>', {'src': 'https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")', 'class':'userpp'}),
+            ($('<li>').addClass("other-chat-box").text(fullmsg))
+          ])
+        ])
         
-        console.log(fullmsg)
+        
       });
 
 
