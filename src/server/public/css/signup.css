@@ -25,6 +25,12 @@ body {
   min-height: 20rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
   background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .user-input-container {
@@ -165,6 +171,16 @@ body {
 
 .repsonsive-back-to-login {
   display: none;
+}
+
+.blue_section {
+  height: 100vh;
+  width: 50%;
+}
+
+.logo-front {
+  margin-top: 63%;
+  height: 22.5rem;
 }
 
 @media only screen and (max-width: 900px) {

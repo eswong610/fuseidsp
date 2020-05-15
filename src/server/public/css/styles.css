@@ -31,8 +31,9 @@ p {
 
 #blue_section {
   height: 100vh;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#8ad1f1));
-  background-image: linear-gradient(to bottom, white, #8ad1f1);
+  width: 50%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+  background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
 }
 
 #blue_section img {

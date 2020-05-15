@@ -136,7 +136,7 @@ module.exports = function () {
         let likedByUser = req.body.liked_profile;
         if (likedByUser) {
             likedByUser = likedByUser.substring(2);
-        // console.log(likedByUser.substring(2))
+            console.log(likedByUser);
         
 
         User.updateOne(
@@ -149,6 +149,18 @@ module.exports = function () {
         .catch((err)=>{
             console.log(err);
         })
+
+        // const newConversation = new Conversation({
+        //     roomId: roomName,
+        //     users: [req.user.username, i]
+        // })
+
+        // newConversation.save()
+        // .then((data)=>{console.log(data + 'conversation saved')})
+        // .catch(err=>console.log(err));
+        
+
+        
         // res.redirect('/find-people')
         }
     })

@@ -25,6 +25,9 @@ body{
     width: 50%;
     min-height: 20rem;
     background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    display:flex;
+    justify-content: center;
+
 }
 .user-input-container{
     width: 50%;
@@ -142,6 +145,18 @@ body{
 
 .repsonsive-back-to-login{
     display:none;
+}
+
+.blue_section{
+    height: 100vh;
+    width: 50%;
+
+}
+
+.logo-front{
+    margin-top: 63%;
+    height: 22.5rem;
+    
 }
 
 @media only screen and (max-width: 900px) {
