@@ -7,21 +7,7 @@ const passport = require('passport')
 const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
 
 
-
-
-
-
-
-
-
 module.exports = function(){
-
-
-    // function testfunc() {
-    //     console.log('hello');
-    // }
-    // restrict routes 
-    
 
 
     router.get('/', (req, res)=>{  
@@ -49,7 +35,7 @@ module.exports = function(){
         })
     })
     router.post('/signup', (req,res)=>{
-       const {name, addressInp, usernameInp, passwordInp, passwordConfirmInp, provinceInp, countryInp, ageInp, cityInp} = req.body;       
+       const {name, addressInp, usernameInp, passwordInp, passwordConfirmInp, provinceInp, countryInp, ageInp, cityInp, genderInp, interestedInInput} = req.body;       
        const errors = []
        
 
@@ -92,7 +78,9 @@ module.exports = function(){
                             country: countryInp,
                             province: provinceInp,
                             city: cityInp,
-                            age: ageInp
+                            age: ageInp,
+                            gender: genderInp,
+                            interestedInInput: interestedInInput
 
                         })
                         newUser.save()

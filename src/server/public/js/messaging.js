@@ -5,7 +5,7 @@ $(function () {
 
     // const name = prompt('Enter your name')
     $('#messages').append($('<li>').addClass("text-center").text(Date()))
-    socket.emit('new-user', name)
+    socket.emit('new-user', 'somebody joined')
 
     // $('#messages').append($('<li>').text(''))
 
@@ -72,5 +72,8 @@ $(function () {
       $('#messages').append($('<li>').addClass("connection-message").text(`Prompt: ${data.prompt}`))
     })
     
+
+    //Private chat attempt
+    socket.emit('join', {username: 'emmy'})
  
   });

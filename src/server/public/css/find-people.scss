@@ -16,7 +16,7 @@
 .custom-img-content{
     width: 25rem;
     height: 25rem;
-    overflow-y: hidden;
+    object-fit:cover;
 }
 
 .navbar-toggler:focus{

@@ -8,6 +8,10 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+.login-instruction {
+  font-size: 1.25rem !important;
+}
+
 #app, #blue_section, #white_section, .checkbox_container, .login_btns, #login_section, #white_heading, #white_heading p {
   display: -webkit-box;
   display: -ms-flexbox;

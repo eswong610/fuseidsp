@@ -23,7 +23,10 @@
 .list-group-item{
     border-right: none;
     border-left: none;
-    background: transparent
+    background: transparent;
+    &:hover{
+        cursor: pointer;
+    }
     
 }
 .list-item-first{
@@ -35,6 +38,10 @@
     width:25rem;
     height: 25rem;
     object-fit: cover;
+}
+
+#profile-img-input{
+    margin-left:25%;
 }
 
 .image-content-container{
@@ -112,7 +119,18 @@ figcaption{
     width:100%;
 }
 
+.profile-edit-bio{
+    display:none;
+}
 
+.profile-options{
+    text-align:center;
+}
+
+.update-img-option{
+    display:none;
+    text-align:center
+}
 
 @media only screen and (max-width: 900px) {
     // body {

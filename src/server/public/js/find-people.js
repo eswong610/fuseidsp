@@ -1,6 +1,10 @@
 $(function() {
 
-        console.log('from find-people.js')
+        
+
+        $('.carousel').each(function(){
+            $(this).find('.carousel-item').eq(0).addClass('active');
+          });
 
         //can access div where its active 
         const allcarousel = $('.carousel-item')

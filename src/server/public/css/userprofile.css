@@ -60,6 +60,10 @@ header a:hover {
   background: transparent;
 }
 
+.list-group-item:hover {
+  cursor: pointer;
+}
+
 .list-item-first {
   border-top: none;
 }
@@ -69,6 +73,10 @@ header a:hover {
   height: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#profile-img-input {
+  margin-left: 25%;
 }
 
 .image-content-container {
@@ -153,6 +161,19 @@ figcaption {
 
 .user-content-container {
   width: 100%;
+}
+
+.profile-edit-bio {
+  display: none;
+}
+
+.profile-options {
+  text-align: center;
+}
+
+.update-img-option {
+  display: none;
+  text-align: center;
 }
 
 @media only screen and (max-width: 900px) {

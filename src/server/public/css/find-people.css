@@ -52,7 +52,8 @@ header a:hover {
 .custom-img-content {
   width: 25rem;
   height: 25rem;
-  overflow-y: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .navbar-toggler:focus {

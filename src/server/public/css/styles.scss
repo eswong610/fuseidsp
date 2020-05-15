@@ -12,6 +12,10 @@ p {
     font-family: $font;
 }
 
+.login-instruction{
+    font-size: 1.25rem!important
+}
+
 
 #app, #blue_section, #white_section, .checkbox_container, .login_btns, #login_section, #white_heading, #white_heading p  {
     display: flex;
@@ -47,6 +51,7 @@ p {
 }
 #white_heading {
     flex-direction: column;
+    
 }
 
 #white_heading p:nth-child(1) {
@@ -175,6 +180,8 @@ p {
     right: 120px;
     top:70px;
 }
+
+
 
 
 @media only screen and (max-width: 900px) {

@@ -2,13 +2,21 @@ const express= require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('./public-controller');
 const User = require('../models/User').User;
-
+const aws = require( 'aws-sdk' );
+const multerS3 = require( 'multer-s3' );
+const multer = require('multer');
+const path = require('path');
+const dotenv = require('dotenv').config({path: __dirname + '/../../../.env'})
+// let upload = multer({ dest: 'uploads/' })
+// const bucket = `https://fuse2020.s3.us-east-2.amazonaws.com/${imagepath}`;
 
 
 module.exports = function () {
 
     router.get('/find-people', ensureAuthenticated, (req,res)=>{
-        User.findRandom({},{},{limit:100},(err, data)=>{
+        let userInterest = req.user.interestedInInput
+        let filter= {gender: {$in: userInterest}}
+        User.findRandom(filter,{},{limit:100},(err, data)=>{
             if (err) throw err;
             //filters out user logged in 
             const otherpeople = [];
@@ -36,9 +44,64 @@ module.exports = function () {
             username,
             age,
             name,
-            bio
+            bio,
+            imageurl
         }=req.user)
     })
+
+    //UPLOADING TO S3 BUCKET
+    const s3 = new aws.S3({
+        accessKeyId: process.env.S3_KEYID,
+        secretAccessKey: process.env.S3_ACCESSKEY,
+        Bucket: 'fuse2020'
+       });
+ 
+
+
+    const profileImgUpload = multer({
+        storage: multerS3({
+        s3: s3,
+        bucket: 'fuse2020',
+        acl: 'public-read',
+        key: function (req, file, cb) {
+        cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
+        }
+        }),
+        limits:{ fileSize: 2000000 }, // In bytes: 2000000 bytes = 2 MB
+    }).single('uploadedimg');
+
+
+    router.post('/profile-img-upload',(req,res)=>{
+      
+        profileImgUpload( req, res, ( error ) => {
+            if (error) {
+                console.log(error)
+            }else{
+                if (req.file===undefined){
+                    console.log('no file selected')
+                }else{
+                        const imageName = req.file.key;
+                        const imageLocation = req.file.location;
+                        console.log('name' + imageName);
+                        console.log('location' + imageLocation);
+
+                        User.updateOne(
+                            {username: req.user.username},
+                            {$set:{imageurl: imageLocation}},
+                            )
+                            .then((data)=>{
+                                console.log('image url updated ' + data);
+                            })
+                            .catch(err=>{
+                                console.log(err)
+                            })
+                        
+                        res.redirect('/profile')
+                        }
+                    }
+        
+            })
+    })    
 
 
     //other users profile - found by username
@@ -81,7 +144,7 @@ module.exports = function () {
             {$addToSet: {likedpeople: likedByUser}}
         )
         .then((data)=>{
-            console.log(`updated ${data}`)
+            console.log(`likes updated ${data}`)
         })
         .catch((err)=>{
             console.log(err);
@@ -91,7 +154,10 @@ module.exports = function () {
     })
 
     router.get('/settings', ensureAuthenticated, (req,res)=>{
-        res.render('profile/settings')
+        res.render('profile/settings', {
+            username,
+            age
+        }=req.user)
     })
 
     router.get('/help', (req,res)=>{
