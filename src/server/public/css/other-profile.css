@@ -48,46 +48,20 @@ header a:hover {
   font-size: 14px;
 }
 
-.custom-carousel-btns {
-  height: 5rem;
-  width: 5rem;
-  margin-top: 12rem;
-}
-
-.custom-img-content {
+.user-profile-img {
   width: 25rem;
   height: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.navbar-toggler:focus {
-  outline: none;
+.list-group-item {
+  border-right: none;
+  border-left: none;
+  background: transparent;
 }
 
-@media only screen and (max-width: 900px) {
-  body {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
-    background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
-  }
-  .responsive-filter {
-    display: none;
-  }
-  .nav-filter-dropdown {
-    display: block;
-    margin-left: 1rem;
-  }
-  #profile-carousel {
-    padding: 0;
-  }
-  .carousel-content {
-    padding: 0;
-  }
-  .thumbsup {
-    padding: 3rem 4.5rem;
-  }
-  .thumbsdown {
-    padding: 3rem 4.5rem;
-  }
+.list-item-first {
+  border-top: none;
 }
-/*# sourceMappingURL=find-people.css.map */
+/*# sourceMappingURL=other-profile.css.map */

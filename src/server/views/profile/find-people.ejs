@@ -12,7 +12,7 @@
         <%- include ("../partials/navbar") %>
 
         <div class="page-main-content col-md-12 d-flex">
-        <div class="col-md-1 pl-0 ml-0 responsive-filter">
+        <div class="col-md-2 pl-0 ml-0 responsive-filter">
             <div class="pos-f-t filter-dropdown">
                 <nav class="navbar pl-0">
                     <button class="navbar-toggler pl-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,10 +68,8 @@
         <!-- carousel -->
         <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-9" data-ride="carousel" data-interval="false" data-wrap='false'>
             <div class="profile-button text-center">
-                <% let profilebtn%>
-                <form method='GET' action='/'>
-                    <button type='submit' class='btn btn-outline-info pr-5 pl-5 mb-3'>Profile</button>
-                </form>
+                
+               
             </div>
                 <div class="carousel-inner">
                     <div class="carousel-content col-md-12 text-center">
@@ -80,9 +78,12 @@
                        
 
                           <% for (i in profiles) { %>
+                            <form method='GET' action='/users/<%=profiles[i]["username"]%>'>
+                              <button type='submit' class='btn btn-outline-info pr-5 pl-5 mr-5 mb-3'>Profile</button>
+                          </form>
                             
                             <div class="carousel-item ">
-                                <figure>
+                                <figure class='mr-3'>
                                     <!-- <img class="custom-img-content rounded img-fluid img-thumbnail" src="<%= profiles[i]['imageurl'] %>" alt="Next slide"> -->
                                     <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Next slide">
                                     <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %>, @<%= profiles[i]['username'] %></figcaption>
@@ -101,9 +102,9 @@
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
                         <form method='POST' action='/liked_profile'>
-                            <button class='btn btn-primary btn-lg m-2 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
+                            <button class='btn btn-primary btn-lg m-2 mr-3 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
                         </form>
-                        <button class='btn btn-primary btn-lg m-2 thumbsdown' data-slide="next" href="#profile-carousel">👎</button>
+                        <button class='btn btn-primary btn-lg m-2 mr-3thumbsdown' data-slide="next" href="#profile-carousel">👎</button>
                     </div>
                 </div>
 

@@ -199,6 +199,10 @@ p {
   top: 70px;
 }
 
+.logo-front {
+  padding: 5rem;
+}
+
 @media only screen and (max-width: 900px) {
   #blue_section {
     display: none;
