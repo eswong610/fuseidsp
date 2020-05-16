@@ -18,8 +18,8 @@
               <div>
                 <div>
                   <p><%= room %></p>
-                  <form class='join-room-form'action='/socket/<%=room %>' method='post'>
-                    <input type='hidden' name='msgroom' value='<%=room %>'/>
+                  <form class='join-room-form'action='/socket/<%=rooms[room] %>' method='post'>
+                    <input type='hidden' name='msgroom' value='<%=rooms[room] %>'/>
                     <button type='submit'> Join </button>
                   </form>
                 </div>
