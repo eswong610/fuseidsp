@@ -107,9 +107,10 @@ module.exports = function () {
             User.findOne({username: req.user.username})
                 .then((data)=>{
                     for (i of data['likedpeople']) {
-                        roomName = i+req.user.username;
-                        rooms[roomName] = i
-
+                        let arr = [i, req.user.username]
+                        arr = arr.sort();
+                        roomName = arr.join('')//i+req.user.username;
+                        rooms[i] = roomName
                      
                     }
                 })
