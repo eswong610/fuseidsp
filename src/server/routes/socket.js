@@ -15,33 +15,33 @@ module.exports = function () {
     // })
     
     //IT WORKS DNOT TOUCH THIS
-    //Socket.io for live chatting.
-    router.get('/message', ensureAuthenticated, (req,res)=>{
-        console.log('from get /message');
+    // //Socket.io for live chatting.
+    // router.get('/message', ensureAuthenticated, (req,res)=>{
+    //     console.log('from get /message');
         
-        const users = {};
+    //     const users = {};
 
-        User.findOne({username: req.user.username})
-                .then((data)=>{
-                    console.log(data['likedpeople'])
-                    for (i of data['likedpeople']) {
-                        rooms[i] = i
-                    }
-                })
-                .catch((err)=>console.log(err));
+    //     User.findOne({username: req.user.username})
+    //             .then((data)=>{
+    //                 console.log(data['likedpeople'])
+    //                 for (i of data['likedpeople']) {
+    //                     rooms[i] = i
+    //                 }
+    //             })
+    //             .catch((err)=>console.log(err));
         
         
-          Prompt.findRandom({},{},{limit:3}, (err,data)=>{
-            if (err) throw err;
-            //console.log(data);
-            //data[i]['prompt]
-            res.render('messaging',{
-                prompts: data,
+    //       Prompt.findRandom({},{},{limit:3}, (err,data)=>{
+    //         if (err) throw err;
+    //         //console.log(data);
+    //         //data[i]['prompt]
+    //         res.render('messaging',{
+    //             prompts: data,
                 
-            })
-          })
+    //         })
+    //       })
         
-    });
+    // });
 
     
 
@@ -77,9 +77,32 @@ module.exports = function () {
 
     // })
 
+    const privateUsers = {}
 
-    router.get('/:room', ensureAuthenticated, (req,res)=>{
+
+    router.post('/:room', ensureAuthenticated, (req,res)=>{
         // console.log(rooms[req.params.rooms])
+        console.log(req.body);
+        let newroom = req.body.msgroom;
+
+        let toBeUser = (req.body.msgroom).replace(req.user.username, '');
+        console.log('the other user' + toBeUser); //shows different usernames when 2 people logged in 
+        
+
+        // User.findOne({username:toBeUser})
+        // .then((data)=>{
+
+            privateUsers['otherUser'] = toBeUser;
+            privateUsers['ownUser'] = req.user.username;
+        // })
+        // .catch((err)=>console.log(err));
+
+
+        res.redirect(`/socket/${newroom}`)
+    });
+
+    
+    router.get('/:room', ensureAuthenticated, (req,res)=>{
         if (rooms[req.params.room] == null) {
             User.findOne({username: req.user.username})
                 .then((data)=>{
@@ -87,15 +110,7 @@ module.exports = function () {
                         roomName = i+req.user.username;
                         rooms[roomName] = i
 
-                        //Create chat room ids
-                        const newConversation = new Conversation({
-                            roomId: roomName,
-                            users: [req.user.username, i]
-                        })
-
-                        newConversation.save()
-                        .then((data)=>{console.log(data + 'conversation saved')})
-                        .catch(err=>console.log(err));
+                     
                     }
                 })
                 .catch((err)=>console.log(err));
@@ -105,11 +120,20 @@ module.exports = function () {
         const users = {};
         
         if(io.sockets._events == undefined) {
-            console.log(req.params.rooms)
+            
+            
             io.on('connection', socket => {
                 
+                
+                
+                
                 // console.log('%s sockets connected', io.engine.clientsCount);
-                console.log(socket.id + ' is connected');
+                socket.personalusername = req.user.username;
+                console.log(socket.id + ' and ' + socket.personalusername + 'is connected');
+                socket.otherUser = privateUsers['otherUser'];
+                console.log(socket.personalusername);
+                
+                // console.log(socket.otherUser + ' is connected from te other side')
 
                 // socket.on('chat message', (msg) => {
                 //     io.emit('chat message', {msg:msg, name: users[socket.id]})
@@ -121,25 +145,28 @@ module.exports = function () {
                 })
 
                 socket.on('send chat message', message=>{
-                    socket.broadcast.emit('chat message', {message:message, name: users[socket.id]})
+                    socket.broadcast.emit('chat message', {message:message, name: socket.otherUser})
                     console.log(`${socket.id} sent ${message}`);
-                     //comes up undefined
-                    const newMessage = new Message({
-                        text: message,
-                        sender: req.user.username,
-                        receiver: rooms[req.params.room] 
-                    })
-                    newMessage.save()
-                    .then(data=>{
-                        console.log(`${data.sender} sent ${data.text} to ${data.receiver}`)
-                    })
-                    .catch(err=>console.log(err))
+                    console.log(`${socket.personalusername} sent ${message}`);
+
+                    // const newMessage = new Message({
+                    //     text: message,
+                    //     sender: req.user.username,
+                    //     receiver: socket.otherUser
+                    // })
+                    // newMessage.save()
+                    // .then(data=>{
+                    //     console.log(`${data.sender} sent ${data.text} to ${data.receiver}`)
+                    // })
+                    // .catch(err=>console.log(err))
 
                 })
 
-                socket.on('new-user',(name)=>{
-                    users[socket.id]= name;
-                    socket.broadcast.emit('user-connected', name)
+                socket.on('new-user',()=>{
+                    
+                    // let name = privateUsers['otherUser'];
+                    // console.log('this is socket on new user ' + privateUsers['receiver'])
+                    socket.broadcast.emit('user-connected', privateUsers['otherUser'])
                 })
 
                 socket.on('use-prompt', (prompt)=>{
@@ -162,14 +189,8 @@ module.exports = function () {
             })
         })
 
-        // res.render('messaging', { 
-        //     roomName: req.params.room
-        // })
+
     })
-
-
-    
-
 
 
 

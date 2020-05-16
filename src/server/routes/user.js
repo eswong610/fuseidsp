@@ -150,14 +150,14 @@ module.exports = function () {
             console.log(err);
         })
 
-        // const newConversation = new Conversation({
-        //     roomId: roomName,
-        //     users: [req.user.username, i]
-        // })
+        const newConversation = new Conversation({
+            roomId: roomName,
+            users: [req.user.username, i]
+        })
 
-        // newConversation.save()
-        // .then((data)=>{console.log(data + 'conversation saved')})
-        // .catch(err=>console.log(err));
+        newConversation.save()
+        .then((data)=>{console.log(data + 'conversation saved')})
+        .catch(err=>console.log(err));
         
 
         

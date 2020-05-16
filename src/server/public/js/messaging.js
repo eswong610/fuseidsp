@@ -5,7 +5,7 @@ $(function () {
 
     // const name = prompt('Enter your name')
     $('#messages').append($('<li>').addClass("text-center").text(Date()))
-    socket.emit('new-user', 'somebody joined')
+    socket.emit('new-user', name)
 
     // $('#messages').append($('<li>').text(''))
 
@@ -49,7 +49,7 @@ $(function () {
 
     socket.on('user-connected',(name)=>{
         
-        $('#messages').append($('<li>').addClass("connection-message").text(`${name} connected`))
+        // $('#messages').append($('<li>').addClass("connection-message").text(`${name} is Online`))
     })
 
     //ROOMS (DONT TOUCH )

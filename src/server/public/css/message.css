@@ -48,6 +48,10 @@ header a:hover {
   font-size: 14px;
 }
 
+.join-room-form {
+  position: relative;
+}
+
 .content-container {
   display: -webkit-box;
   display: -ms-flexbox;

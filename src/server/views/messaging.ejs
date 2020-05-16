@@ -15,8 +15,19 @@
         <div class="match-one-container">
           <div class="room-container">
             <% Object.keys(rooms).forEach((room)=>{ %>
-                <div><%= room %></div>
-                <a href='/socket/<%= room %>'>Join</a>
+              <div>
+                <div>
+                  <p><%= room %></p>
+                  <form class='join-room-form'action='/socket/<%=room %>' method='post'>
+                    <input type='hidden' name='msgroom' value='<%=room %>'/>
+                    <button type='submit'> Join </button>
+                  </form>
+                </div>
+              </div> 
+
+       
+              
+                
             <% }) %>
     
           </div>
