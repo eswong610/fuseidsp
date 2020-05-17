@@ -37,8 +37,25 @@ module.exports = function () {
         let sender = req.user.username;
         let receiver = users['receiver'];
         console.log(content + 'from ' + sender + ' to ' + receiver);
+
+        const newMessage = new Message({
+            text: content,
+            sender: sender,
+            receiver: receiver
+        })
+        newMessage.save()
+            .then((data)=>{
+                console.log('new message saved : ' + data)
+            })
+            .catch((err)=>console.log(err))
+
+        receiver = '';
         
     })
+
+    router.get('/rooms', (req,res)=>[
+        
+    ])
     
    
 
