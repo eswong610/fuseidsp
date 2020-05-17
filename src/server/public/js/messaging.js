@@ -33,7 +33,7 @@ $(function () {
       let mymessage = `You: ${message}`
       // $('#messages').append($('<li>').addClass("user-chat-box").text(mymessage))
 
-
+      $.post('/socket/savemsg', {content: message}, ()=>console.log('successfully posted'))
       $('#messages').append([
         $('<div/>', {'class': 'user-pp-container d-flex justify-content-start flex-row-reverse' }).append([
           $('<img/>', {'src': 'https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")', 'class':'userpp'}),

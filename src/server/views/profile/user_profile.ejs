@@ -18,7 +18,7 @@
             </figure>
         </div>
         <div class="user-profile-content-container col-md-6 d-flex flex-column align-items-center pr-4">
-            <h4 class='m-3 mt-5'><%= data.name %></h1> <a href='message/<%= data.username%>'>Message</a>
+            <h4 class='m-3 mt-5'><%= data.name %></h1> <form action='/socket/sendmsg' method='post'><input type='hidden' value='<%=data.username %>' name='receiverUsername'/><button type='submit'>Message</button></form>
             <h5><%= data.age %></h2>
             <p class='border rounded mt-3 p-3'><%= data.bio %></p>
         
