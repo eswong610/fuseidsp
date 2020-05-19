@@ -7,10 +7,51 @@
     font-size:14px;
 }
 
+body{
+    background: rgba(138,209,241,0.5)
+}
+
+.btn-info{
+    background:  rgba(255,120,171,1);
+    border: none;
+    &:hover{
+        background: none;
+        border: 1px solid rgba(255,120,171,1);
+        color: black;
+    }
+    &:focus{
+        outline: none
+    }
+}
+
+.btn-primary{
+    background:rgb(116, 178, 206);
+    border: none;
+    &:hover{
+        background: none;
+        border:1px solid rgb(116, 178, 206);
+        color: black;
+    }
+    &:focus{
+        outline: none
+    }
+}
+
 .custom-carousel-btns{
     height: 5rem; 
     width: 5rem; 
     margin-top: 12rem; 
+}
+
+figcaption{
+    width:25rem;
+    padding:0.5rem;
+    margin-left: 257px!important;
+    background: linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
+}
+
+.btn-lg{
+    padding: 2rem 5rem;
 }
 
 .custom-img-content{

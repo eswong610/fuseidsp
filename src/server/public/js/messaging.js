@@ -67,11 +67,17 @@ $(function () {
       
     })
 
+    //prompts 
     socket.on('user-prompt', (data)=>{
       console.log('hello from socket.on' + data.prompt)
       $('#messages').append($('<li>').addClass("connection-message").text(`Prompt: ${data.prompt}`))
     })
     
+    $('.suggestion-links').click(function() {
+      let prompttext = $(this).text();
+      console.log('clicked prompt');
+      $('#messages').append($('<li>').addClass("connection-message").text(`Prompt: ${prompttext}`))
+    })
 
     //Private chat attempt
     socket.emit('join', {username: 'emmy'})

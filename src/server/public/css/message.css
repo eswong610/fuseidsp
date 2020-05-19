@@ -58,6 +58,34 @@ header a:hover {
   display: flex;
 }
 
+.liked-people-item {
+  list-style: none;
+}
+
+.liked-people-btn {
+  background: transparent;
+  padding: 2rem;
+  border: none;
+}
+
+.liked-people-btn:hover {
+  color: pink;
+}
+
+.liked-people-link {
+  text-decoration: none;
+  color: black;
+}
+
+.liked-people-link:hover {
+  color: pink;
+  text-decoration: none;
+}
+
+.likedpeople-form {
+  position: relative;
+}
+
 form {
   position: fixed;
   bottom: 0;

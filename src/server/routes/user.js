@@ -108,9 +108,20 @@ module.exports = function () {
     router.get('/users/:username', (req,res)=>{
         User.findOne({username: req.params.username})
             .then((data)=>{
-                console.log(data);
+                // console.log(data);
+                let attributes = {
+                    'smoking': data.smoking, 
+                    'active': data.active, 
+                    'political': data.political, 
+                    'religious': data.religious, 
+                    'alcohol': data.alcohol, 
+                    'traveller': data.traveller, 
+                    'marriage': data.marriage, 
+                    'casual': data.casual
+                };
                 res.render('profile/user_profile', {
-                    data: data
+                    data: data,
+                    attributes: attributes
                 })
             })
         // res.send(req.params.username + 'this is the profile you\'re looking for')

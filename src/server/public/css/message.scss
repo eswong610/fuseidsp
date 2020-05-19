@@ -18,6 +18,37 @@
 
 }
 
+//liked people 
+.liked-people-item{
+    list-style: none;
+
+}
+
+.liked-people-btn{
+    background: transparent;
+    padding: 2rem;
+    border: none;
+    &:hover{
+        color: pink;
+    }
+}
+
+.liked-people-link{
+    text-decoration: none;
+    color: black;
+    &:hover{
+        color: pink;
+        
+        text-decoration: none
+        
+    }
+}
+
+.likedpeople-form{
+    position: relative;
+
+}
+
 form {
  
     position: fixed; 

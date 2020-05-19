@@ -15,10 +15,15 @@
         <div class="match-one-container">
          
 
-        <!-- <form class='room-form' action='/socket/rooms' method='POST'>
-          <input type='text' name='formroom' required />
-          <button type='submit'>Make new room</button>
-      </form> -->
+          <% for (i=0; i<likedpeople.length; i ++) { %>
+            
+            <form class='likedpeople-form' method='post' action='/socket/sendmsg'>
+              <input type='hidden' name='receiverUsername' value='<%= likedpeople[i] %>'>
+              <button type='submit' class='liked-people-btn'><li class='liked-people-item'><%= likedpeople[i] %> </li></button>
+              
+            </form>
+            <!-- <a href='/socket/message/<%=likedpeople[i]%>' class='liked-people-link'><li class='liked-people-item'><%= likedpeople[i] %> </li></a> -->
+          <% } %>
 
       </div>
 
@@ -26,7 +31,21 @@
 
     <div class='chat-container col-md-10'>
         <div class="chat-msgs-container ">
-          <ul id="messages"></ul>
+          <ul id="messages">
+          <% for (i=0; i<pastMsg.length; i++) { %>
+              <% if (pastMsg[i]['sender'] == loggedIn) {  %>
+                  <div class='user-pp-container d-flex justify-content-start flex-row-reverse'>
+                    <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'>
+                    <li class='user-chat-box'> You: <%= pastMsg[i]['text'] %></li>
+                  </div>
+               <% }else{ %>
+                  <div class='user-pp-container d-flex justify-content-start flex-row'>
+                    <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'>
+                    <li class='other-chat-box'> <%= pastMsg[i]['text'] %></li>
+                  </div>
+               <%} %>
+          <% } %>
+          </ul>
         </div>
         <form class='msg-form' action="">
           <div class="input-container col-md-12">

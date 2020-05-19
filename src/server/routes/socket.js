@@ -10,8 +10,8 @@ const Conversation = require('../models/Conversation').Conversation;
 module.exports = function () {
 
     const users= {};
-
-    router.post('/sendmsg', (req,res)=>{
+    console.log(users);
+    router.post('/sendmsg', (req,res)=>{ // from other user's profile message button
         let {receiverUsername} = req.body;
         users['receiver'] = receiverUsername;
 
@@ -19,16 +19,38 @@ module.exports = function () {
     })
 
 
-    router.get('/message/:username', (req,res)=>{
-        Prompt.findRandom({},{},{limit:3}, (err,data)=>{
-            if (err) throw err;
-            //console.log(data);
-            //data[i]['prompt]
-            res.render('messaging',{
-                prompts: data,
-                
+    router.get('/message/:username', ensureAuthenticated, (req,res)=>{
+        let allmsgData ;
+        let likedpeople;
+
+        
+        Message.find({sender:{$in : [req.user.username, users['receiver']]}, receiver:{$in: [req.user.username, users['receiver']]}})
+            .then((data)=>{
+                console.log(data);
+                allmsgData = data;
+                User.findOne({username: req.user.username})
+                    .then((data)=>{
+                    likedpeople = data.likedpeople;
+                    
+
+                    Prompt.findRandom({},{},{limit:3}, (err,data)=>{
+                        if (err) throw err;
+                        //console.log(data);
+                        //data[i]['prompt]
+                        res.render('messaging',{
+                            prompts: data,
+                            likedpeople : likedpeople,
+                            pastMsg: allmsgData,
+                            loggedIn : req.user.username,
+                            //loggedInImg: req.user.img
+                            
+                        })
+                    })
+
+                })
             })
-        })
+            .catch(err=>console.log(err))
+        
         
     })
 
@@ -53,9 +75,22 @@ module.exports = function () {
         
     })
 
-    router.get('/rooms', (req,res)=>[
+    router.get('/rooms', ensureAuthenticated, (req,res)=>{
+        let likedpeople;
+        User.findOne({username:req.user.username})
+            .then((data)=>{
+                likedpeople = data.likedpeople;
+                console.log(likedpeople)
+                res.render('messaging', {
+                    likedpeople: likedpeople,
+                    prompts: null,
+                    pastMsg: []
+                })
+            })
+            .catch((err)=>console.log(err))
         
-    ])
+        
+    })
     
    
 

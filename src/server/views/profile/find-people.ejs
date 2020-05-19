@@ -82,7 +82,7 @@
                             
                             <div class="carousel-item ">
                               <form method='GET' action='/users/<%=profiles[i]["username"]%>'>
-                                <button type='submit' class='btn btn-outline-info pr-5 pl-5 mr-5 mb-3'>Profile</button>
+                                <button type='submit' class='btn btn-info pr-5 pl-5 mr-4 mb-3'>Profile</button>
                               </form>
                                 <figure class='mr-3'>
                                     <!-- <img class="custom-img-content rounded img-fluid img-thumbnail" src="<%= profiles[i]['imageurl'] %>" alt="Next slide"> -->
@@ -103,9 +103,10 @@
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
                         <form method='POST' action='/liked_profile'>
-                            <button class='btn btn-primary btn-lg m-2 mr-3 thumbsup' type='submit' data-slide="next" href="#profile-carousel">👍</button>
+                            <button class='btn btn-primary btn-lg m-2 mr-4 thumbsup' type='submit' data-slide="next" href="#profile-carousel"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
                         </form>
-                        <button class='btn btn-primary btn-lg m-2 mr-3thumbsdown' data-slide="next" href="#profile-carousel">👎</button>
+                        <button class='btn btn-primary btn-lg m-2 mr-4 thumbsdown' data-slide="next" href="#profile-carousel"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
 

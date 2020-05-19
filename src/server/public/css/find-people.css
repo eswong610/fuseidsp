@@ -48,10 +48,56 @@ header a:hover {
   font-size: 14px;
 }
 
+body {
+  background: rgba(138, 209, 241, 0.5);
+}
+
+.btn-info {
+  background: #ff78ab;
+  border: none;
+}
+
+.btn-info:hover {
+  background: none;
+  border: 1px solid #ff78ab;
+  color: black;
+}
+
+.btn-info:focus {
+  outline: none;
+}
+
+.btn-primary {
+  background: #74b2ce;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: none;
+  border: 1px solid #74b2ce;
+  color: black;
+}
+
+.btn-primary:focus {
+  outline: none;
+}
+
 .custom-carousel-btns {
   height: 5rem;
   width: 5rem;
   margin-top: 12rem;
+}
+
+figcaption {
+  width: 25rem;
+  padding: 0.5rem;
+  margin-left: 257px !important;
+  background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+  background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+}
+
+.btn-lg {
+  padding: 2rem 5rem;
 }
 
 .custom-img-content {
