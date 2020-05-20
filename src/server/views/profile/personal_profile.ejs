@@ -45,40 +45,39 @@
             <h4 class='user-content-name m-3 mt-2'><%= name %></h1>
             <h5>Age: <%= age %></h2>
             <form class='profile-edit-bio' action='/bio-update' method='POST'>
-                <textarea name='biotext' class='rounded 'id='biotext' rows='4' cols='50'placeholder="Tell people about yourself" max-length='200' type='text' ></textarea>
+                <textarea name='biotext' class='rounded 'id='biotext' rows='4' cols='50'placeholder="Tell others a bit about you!" max-length='200' type='text' ></textarea>
                 <button type='submit' class='btn btn-info m-3 mb-5 bio-save-btn'>Save</button>
             </form>
-            <p class='border rounded profile-bio-text mt-3 p-3'><%=bio%></p>
+            <p class='border rounded profile-bio-text mt-3 p-3 <% if (bio == "") { %> d-none <% } %>'</p><%=bio%></p>
             
         
             <!-- preferences -->
            
+            <p class='text-secondary mt-5'>Highlight attributes to let people know more about you</p>
             <div class='preferences-container d-flex justify-content-between w-100'>
-                
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Smoking</li>
-                        <li class="list-group-item ">Active</li>
-                        <li class="list-group-item custom-active ">Alcohol</li>
-                        <li class="list-group-item">Religious </span></li>
+                        <li class="list-group-item list-item-first <% if (smoking) { %> custom-active <% } %>">Smoking</li>
+                        <li class="list-group-item <% if (active) { %> custom-active <% }%>">Active</li>
+                        <li class="list-group-item <% if (alcohol) { %> custom-active <% }%>">Alcohol</li>
+                        <li class="list-group-item <% if (religious) { %> custom-active <% }%>">Religious </span></li>
                     </ul>
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Political</li>
-                        <li class="list-group-item custom-active">Traveller</li>
-                        <li class="list-group-item">Marriage &emsp;</li>
-                        <li class="list-group-item">Casual </span></li>
+                        <li class="list-group-item list-item-first <% if (political) { %> custom-active <% }%>">Political</li>
+                        <li class="list-group-item <% if (traveller) { %> custom-active <% }%>">Traveller</li>
+                        <li class="list-group-item <% if (marriage) { %> custom-active <% }%>">Marriage</li>
+                        <li class="list-group-item <% if (casual) { %> custom-active <% }%>">Casual </span></li>
                     </ul>
 
             </div>
 
-            <div class="instagram-link-container d-flex align-items-center mt-5">
+            <!-- <div class="instagram-link-container d-flex align-items-center mt-5">
                 <div class="icon-ig-content">
                     <i class='fab fa-instagram brand-icon-ig mr-3' style='font-size:36px'></i>
-                </div>
+                </div> -->
                 <!-- <div class="link-ig-content">
                     <a href='/'>Connect to Instagram</a>
                 </div> -->
-
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     </div>

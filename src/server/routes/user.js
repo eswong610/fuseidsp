@@ -39,13 +39,21 @@ module.exports = function () {
     })
 
     router.get('/profile', ensureAuthenticated, (req,res)=>{
-        // console.log(req.user)
+        
         res.render('profile/personal_profile', {
             username,
             age,
             name,
             bio,
-            imageurl
+            imageurl,
+            smoking,
+            active,
+            political,
+            religious,
+            alcohol,
+            traveller,
+            marriage,
+            casual
         }=req.user)
     })
 
@@ -141,6 +149,49 @@ module.exports = function () {
             })
            
         res.redirect('/profile')
+    })
+
+    router.post('/attribute-update', ensureAuthenticated, (req,res)=>{
+        let {attribute} = req.body;
+        attribute = attribute.toLowerCase();
+        let toUpdate = {};
+        
+        User.findOne({username: req.user.username})
+            .then((data)=>{
+                
+                if (data[attribute] == false){
+                    console.log(attribute);
+                    
+                    toUpdate[attribute] = true;
+                    console.log(toUpdate);
+                    User.updateOne(
+                        {username: req.user.username},
+                        {$set: toUpdate},
+                        {upsert:true},
+                        )
+                        .then(()=>{
+
+                            res.redirect('/profile')
+                            
+                        })
+
+                }else if (data[attribute] == true){
+                    console.log(attribute + ' is ' + data[attribute])
+                    toUpdate[attribute] = false;
+                    console.log(toUpdate);
+                    User.updateOne(
+                        {username: req.user.username},
+                        {$set: toUpdate},
+                        {upsert: true},
+                        )
+                        .then((result)=>{
+                            console.log(result + 'changed to false')
+                            res.json(result);
+                            
+                        })
+                }
+            })
+            toUpdate = {};
     })
 
     router.post('/liked_profile', (req,res)=>{

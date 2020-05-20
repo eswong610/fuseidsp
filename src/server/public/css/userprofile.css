@@ -47,7 +47,8 @@ header a:hover {
 }
 
 .page-container {
-  overflow-y: scroll;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .mobile-heading-text {
@@ -78,6 +79,8 @@ header a:hover {
   height: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
+  max-width: 100%;
+  max-width: 100%;
 }
 
 #profile-img-input {
@@ -190,6 +193,7 @@ figcaption {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    overflow: scroll;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
     background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
   }
@@ -202,13 +206,13 @@ figcaption {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -225,21 +229,18 @@ figcaption {
   .profile-bio-text {
     text-align: center;
   }
+  .profile-edit-bio {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .responsive-text {
     display: block;
     top: 2rem;
     text-align: center;
     padding: 2rem;
     margin: 1rem;
-  }
-  .change-picture-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
   }
   .user-img-content-container {
     background: none;
@@ -256,6 +257,8 @@ figcaption {
   }
   .user-content-container {
     bottom: 3rem;
+    top: 1rem;
+    margin-bottom: 2rem;
   }
   .user-content-container h5 {
     display: none;

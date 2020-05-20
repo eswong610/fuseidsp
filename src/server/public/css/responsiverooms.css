@@ -1,0 +1,79 @@
+.navbar-img {
+  height: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.nav-bar-logo {
+  height: 3rem;
+  margin-right: 15rem;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: #ff78ab;
+}
+
+.responsive-header-background {
+  display: none;
+}
+
+.nav-filter-dropdown {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .responsive-header-background {
+    display: block;
+    background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+    background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  }
+  .webpage-header {
+    display: none !important;
+  }
+  .responsive-header {
+    display: block;
+    height: 10rem;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, white), to(#8ad1f1));
+  background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
+}
+
+.with-nav {
+  height: 100vh;
+}
+
+.msg-title {
+  text-align: center;
+}
+
+.liked-people-btn {
+  background: #ffafce;
+  border: none;
+  width: -webkit-fill-available;
+}
+
+.liked-people-item {
+  text-decoration: none;
+  list-style: none;
+}
+
+.liked-people-item:hover {
+  color: #ff78ab;
+  text-decoration: none;
+}
+/*# sourceMappingURL=responsiverooms.css.map */

@@ -1,15 +1,32 @@
 $(function(){
     $('.list-group-item').click(function() {
-        console.log('list item clicked')
         if ($(this).hasClass('custom-active')) {
             $(this).removeClass('custom-active')
+            let attValue = $(this).text(); 
+            console.log(attValue);
+            $.post('/attribute-update', {attribute: attValue})
+                .done(()=>{
+                    alert('Attribute changed')
+                })
+                .fail(()=>{
+                    alert('Could not change attribute, please try again later')
+                })
         }else{
-            $(this).addClass('custom-active')
+            $(this).addClass('custom-active');
+            let attValue = $(this).text(); 
+            console.log(attValue);
+            $.post('/attribute-update', {attribute: attValue})
+                .done(()=>{
+                    alert('Attribute changed')
+                })
+                .fail(()=>{
+                    alert('Could not change attribute, please try again later')
+                })
         }
     })
 
     $('.profile-edit-btn').click(function(){
-        $('.profile-edit-bio').show(100);
+        $('.profile-edit-bio').css('display', 'flex').hide().fadeIn();
         $('.update-img-option').show(100);
         $(this).hide();
     })

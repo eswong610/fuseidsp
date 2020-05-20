@@ -97,6 +97,10 @@ p {
   margin: 0 10px;
 }
 
+#login_btn:focus {
+  outline: none;
+}
+
 #signup_btn {
   font-family: 'Lato', sans-serif;
   font-weight: bold;
@@ -106,6 +110,10 @@ p {
   border-radius: 3px;
   padding: 0 20px;
   margin: 0 10px;
+}
+
+#signup_btn:focus {
+  outline: none;
 }
 
 #input_username, #input_password {
@@ -204,6 +212,10 @@ p {
   padding: 5rem;
 }
 
+.responsive-logo-img {
+  display: none;
+}
+
 @media only screen and (max-width: 900px) {
   #blue_section {
     display: none;
@@ -214,6 +226,11 @@ p {
   }
   #white_heading {
     text-align: center;
+  }
+  .responsive-logo-img {
+    display: block;
+    height: 50%;
+    width: auto;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -92,6 +92,18 @@ module.exports = function () {
         
     })
     
+
+    router.get('/allrooms', ensureAuthenticated, (req,res)=>{
+        let likedpeople;
+        User.findOne({username:req.user.username})
+            .then((data)=>{
+                likedpeople = data.likedpeople;
+                console.log(likedpeople)
+                res.render('responsiverooms', {
+                    likedpeople: likedpeople,
+                })
+        })
+    })
    
 
     

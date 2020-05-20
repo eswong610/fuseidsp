@@ -5,9 +5,10 @@
     font-size: 14px;
 }
 
+
 .page-container{
-    // height: 100vh;
-    overflow-y: scroll;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .mobile-heading-text{
@@ -38,6 +39,8 @@
     width:25rem;
     height: 25rem;
     object-fit: cover;
+    max-width: 100%;
+    max-width:100%;
 }
 
 #profile-img-input{
@@ -141,6 +144,7 @@ figcaption{
     .page-container{
         display:flex;
         flex-direction: column;
+        overflow: scroll;
         background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
     }
 
@@ -153,8 +157,8 @@ figcaption{
     .change-picture-container{
         width: 100%;
         display:flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-evenly;
 
         .btn{
@@ -175,6 +179,11 @@ figcaption{
         
     }
 
+    .profile-edit-bio{
+        
+        flex-direction: column;
+    }
+
     .responsive-text{
         display:block;
         
@@ -184,10 +193,6 @@ figcaption{
         margin:1rem;
     }
 
-    .change-picture-container{
-        display:flex;
-        flex-direction: row !important;
-    }
     .user-img-content-container{
         background: none;
         min-height: 100vh;
@@ -201,11 +206,14 @@ figcaption{
         height: 25rem;
         object-fit: cover;
         
+        
     }
 
     .user-content-container{
         
         bottom:3rem;
+        top: 1rem;
+        margin-bottom:2rem;
 
         h5{
             display:none;
