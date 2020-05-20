@@ -50,8 +50,6 @@ module.exports = function () {
                 })
             })
             .catch(err=>console.log(err))
-        
-        
     })
 
     router.post('/savemsg', ensureAuthenticated, (req,res)=>{
