@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ("./partials/head") %>
+    <link rel="stylesheet" type="text/css" href="/css/responsiverooms.css" />
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <div class="with-nav">
+        <%- include ("./partials/navbar") %>
+        <div class="matches-container col-md-2">
+            <h3 class='msg-title'> MESSAGES </h1> 
+            <div class="match-one-container">
+             
+    
+              <% for (i=0; i<likedpeople.length; i ++) { %>
+                <div class="card m-3">
+                    <form class='likedpeople-form' method='post' action='/socket/sendmsg'>
+                    <input type='hidden' name='receiverUsername' value='<%= likedpeople[i] %>'>
+                    <button type='submit' class='liked-people-btn '><li class='liked-people-item text-left card-header'><%= likedpeople[i] %> </li></button>
+                    <p class='card-text'></p>
+                    </form>
+                </div>
+                <!-- <a href='/socket/message/<%=likedpeople[i]%>' class='liked-people-link'><li class='liked-people-item'><%= likedpeople[i] %> </li></a> -->
+              <% } %>
+    
+          </div>
+    
+        </div>
+    </div>
+</body>
+</html>

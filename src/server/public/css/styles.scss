@@ -12,13 +12,17 @@ p {
     font-family: $font;
 }
 
+.login-instruction{
+    font-size: 1.25rem!important
+}
+
 
 #app, #blue_section, #white_section, .checkbox_container, .login_btns, #login_section, #white_heading, #white_heading p  {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+ 
 #app {
     width: 100vw;
     height: 100vh;
@@ -26,8 +30,9 @@ p {
 
 #blue_section {
     height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(138, 209, 241, 1) );
-    flex: 5;
+    width: 50%;
+    background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    
 }
 
 #blue_section img {
@@ -47,6 +52,7 @@ p {
 }
 #white_heading {
     flex-direction: column;
+    
 }
 
 #white_heading p:nth-child(1) {
@@ -75,6 +81,9 @@ p {
     border-radius: 3px;
     padding: 0 20px;
     margin: 0 10px;
+    &:focus{
+        outline: none;
+    }
 }
 
 #signup_btn {
@@ -86,6 +95,9 @@ p {
     border-radius: 3px;
     padding: 0 20px;
     margin: 0 10px;
+    &:focus{
+        outline: none;
+    }
 }
 
 #input_username, #input_password {
@@ -170,18 +182,38 @@ p {
     width :400px;
 }
 
-#diectionsText{
+#directionsText{
     position: absolute;
     right: 120px;
     top:70px;
 }
 
+.logo-front{
+    padding: 5rem;
+}
+
+.responsive-logo-img{
+    display:none;
+}
+
 
 @media only screen and (max-width: 900px) {
-    body {
-      background: $background-gradient ;
-    }
     #blue_section{
-        display: none;
+        display:none;
     }
-  }
+
+    body{
+        background: $background-gradient;
+    }
+
+    #white_heading{
+        text-align: center;
+    }
+
+    .responsive-logo-img{
+        display: block;
+        height: 50%;
+        width: auto;
+    }
+
+}

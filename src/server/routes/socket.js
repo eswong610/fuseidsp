@@ -1,118 +1,110 @@
 const express= require('express');
 const router = express.Router();
+const Prompt = require('../models/Prompt').Prompt;
+const { ensureAuthenticated } = require('./public-controller');
+const User = require('../models/User').User;
+const Message = require('../models/Message').Message;
+const Conversation = require('../models/Conversation').Conversation;
 
 
 module.exports = function () {
 
-    // router.use((req,res,next)=>{
-    //     let io = req.app.get('socketio');
-    //     next();
-    // })
-    
-    //IT WORKS DNOT TOUCH THIS
-    //Socket.io for live chatting.
-    router.get('/message', (req,res)=>{
+    const users= {};
+    console.log(users);
+    router.post('/sendmsg', (req,res)=>{ // from other user's profile message button
+        let {receiverUsername} = req.body;
+        users['receiver'] = receiverUsername;
 
-        let io = req.app.get('socketio');
-        const users = {};
-        
-        if(io.sockets._events == undefined) {
-            io.on('connection', socket => {
-                // console.log('%s sockets connected', io.engine.clientsCount);
-                console.log(socket.id + ' is connected');
-
-                // socket.on('chat message', (msg) => {
-                //     io.emit('chat message', {msg:msg, name: users[socket.id]})
-                //     console.log(`${socket.id} sent ${msg}`);
-                // });
-
-                socket.on('disconnect',()=>{
-                    socket.removeAllListeners();
-                    console.log('user disconnected')
-                })
-
-                socket.on('send chat message', message=>{
-                    socket.broadcast.emit('chat message', {message:message, name: users[socket.id]})
-                    console.log(`${socket.id} sent ${message}`);
-                })
-
-                socket.on('new-user',(name)=>{
-                    users[socket.id]= name;
-                    socket.broadcast.emit('user-connected', name)
-                })
-            });
-          }
-        res.render('messaging')//, {
-           //not sure about this....... 
-            //javascript: "../public/js/messaging.js"
-        //});
-    });
-
-
-    //test rooms 
-    rooms = {trialroom : 'hello'}
-
-    router.get('/rooms', (req,res)=>{
-        res.render('rooms', {rooms:rooms})
+        res.redirect('/socket/message/'+receiverUsername);
     })
 
-    router.post('/rooms', (req,res)=>{
-        if (rooms[req.body.formroom] != null) {
-            return res.redirect('/rooms')
-        }
-        console.log(req.body)
-        rooms[req.body.formroom] = { users: {} }
 
-        //Sends message that new room is created
+    router.get('/message/:username', ensureAuthenticated, (req,res)=>{
+        let allmsgData ;
+        let likedpeople;
+
         
-        res.redirect(req.body.formroom);
-
-        let io = req.app.get('socketio');
-        io.emit('room-created', req.body.formroom)
-
-    })
-
-    router.get('/:room', (req,res)=>{
-        if (rooms[req.params.room] == null) {
-            res.redirect('rooms')
-        }
-
-        let io = req.app.get('socketio');
-        const users = {};
-        
-        if(io.sockets._events == undefined) {
-            io.on('connection', socket => {
-                // console.log('%s sockets connected', io.engine.clientsCount);
-                console.log(socket.id + ' is connected');
-
-                // socket.on('chat message', (msg) => {
-                //     io.emit('chat message', {msg:msg, name: users[socket.id]})
-                //     console.log(`${socket.id} sent ${msg}`);
-                // });
-
-                socket.on('disconnect',()=>{
+        Message.find({sender:{$in : [req.user.username, users['receiver']]}, receiver:{$in: [req.user.username, users['receiver']]}})
+            .then((data)=>{
+                console.log(data);
+                allmsgData = data;
+                User.findOne({username: req.user.username})
+                    .then((data)=>{
+                    likedpeople = data.likedpeople;
                     
-                    console.log('user disconnected')
-                })
 
-                socket.on('send chat message', message=>{
-                    socket.broadcast.emit('chat message', {message:message, name: users[socket.id]})
-                    console.log(`${socket.id} sent ${message}`);
-                })
+                    Prompt.findRandom({},{},{limit:3}, (err,data)=>{
+                        if (err) throw err;
+                        //console.log(data);
+                        //data[i]['prompt]
+                        res.render('messaging',{
+                            prompts: data,
+                            likedpeople : likedpeople,
+                            pastMsg: allmsgData,
+                            loggedIn : req.user.username,
+                            //loggedInImg: req.user.img
+                            
+                        })
+                    })
 
-                socket.on('new-user',(name)=>{
-                    users[socket.id]= name;
-                    socket.broadcast.emit('user-connected', name)
                 })
-            });
-          }
-        res.render('messaging', { 
-            roomName: req.params.room
+            })
+            .catch(err=>console.log(err))
+    })
+
+    router.post('/savemsg', ensureAuthenticated, (req,res)=>{
+        const {content} = req.body;
+        let sender = req.user.username;
+        let receiver = users['receiver'];
+        console.log(content + 'from ' + sender + ' to ' + receiver);
+
+        const newMessage = new Message({
+            text: content,
+            sender: sender,
+            receiver: receiver
+        })
+        newMessage.save()
+            .then((data)=>{
+                console.log('new message saved : ' + data)
+            })
+            .catch((err)=>console.log(err))
+
+        receiver = '';
+        
+    })
+
+    router.get('/rooms', ensureAuthenticated, (req,res)=>{
+        let likedpeople;
+        User.findOne({username:req.user.username})
+            .then((data)=>{
+                likedpeople = data.likedpeople;
+                console.log(likedpeople)
+                res.render('messaging', {
+                    likedpeople: likedpeople,
+                    prompts: null,
+                    pastMsg: []
+                })
+            })
+            .catch((err)=>console.log(err))
+        
+        
+    })
+    
+
+    router.get('/allrooms', ensureAuthenticated, (req,res)=>{
+        let likedpeople;
+        User.findOne({username:req.user.username})
+            .then((data)=>{
+                likedpeople = data.likedpeople;
+                console.log(likedpeople)
+                res.render('responsiverooms', {
+                    likedpeople: likedpeople,
+                })
         })
     })
+   
 
     
-
 
 
 

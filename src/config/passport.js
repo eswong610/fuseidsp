@@ -14,7 +14,7 @@ module.exports = function (passport) {
             User.findOne({  
                 username: username 
             }).then((user)=>{
-                    console.log('from passport config ' + user);
+                    // console.log('from passport config ' + user);
 
                     if (!user) {
                         return done(null, false, {message: 'That username does not exist'});

@@ -3,6 +3,11 @@
     margin-top:0.5rem;
 }
 
+.nav-bar-logo{
+    height:3rem;
+    margin-right: 15rem;
+}
+
 
 
 header a{
@@ -14,4 +19,31 @@ header a{
         color: rgba(255,120,171,1);
     }
 }
+
+.responsive-header-background{
+    display:none;
+}
+
+.nav-filter-dropdown{
+    display:none;
+}
+
+@media only screen and (max-width: 900px) {
+    .responsive-header-background{
+        display:block;
+        background: linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
+    }
+
+    .webpage-header{
+        display:none!important;
+    }
+
+    .responsive-header{
+        display:block;
+        height: 10rem;
+    }
+
+}
+
+
 

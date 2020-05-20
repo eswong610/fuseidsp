@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ("../partials/head") %>
-    <link rel="stylesheet" type="text/css" href="css/userprofile.css" />
-    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/other-profile.css" />
+    <title><%= data.name %></title>
 </head>
 <body>
     <div class="page-container">
     <%- include ("../partials/navbar") %>
     <div class="content-big-container d-flex align-items-center">
-        <div class="right-image-container col-md-6 p-0 d-flex justify-content-center align-content-center">
+        <div class="right-image-container col-md-6 p-0 d-flex text-center align-items-center justify-content-center">
             <figure>
-                <img class='img-fluid rounded user-profile-img' src="https://images.unsplash.com/photo-1496637721836-f46d116e6d34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
-            <figcaption class='text-center image-caption-content'>Bob 25</figcaption>
+                <img class='img-fluid rounded user-profile-img w-50' src="https://images.unsplash.com/photo-1496637721836-f46d116e6d34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
+            <figcaption class='text-center image-caption-content'>@<%= data.username%>,  <%= data.age%></figcaption>
             </figure>
         </div>
-        <div class="user-profile-content-container col-md-6 d-flex flex-column align-items-center pr-4">
-            <h4 class='m-3 mt-5'>Bob Thirty</h1>
-            <h5>25 Years Old</h2>
-            <p class='border rounded mt-3 p-3'>Cotton candy gummies bear claw chocolate gummies apple pie liquorice cheesecake apple pie. Toffee cookie wafer chocolate cake apple pie lemon drops jelly beans pastry. Soufflé jelly beans gummi bears sesame snaps. Tart toffee gummies cookie wafer pastry candy canes oat cake. Lollipop pudding cake. Biscuit carrot cake gingerbread marzipan danish tiramisu. Candy canes chocolate bar chocolate cake. Marzipan pudding pastry donut tootsie roll tootsie roll ice cream cake. Marzipa</p>
+        <div class="user-profile-content-container col-md-6 d-flex flex-column align-items-center  pr-4">
+            <h4 class='responsive-name m-3 mt-5'><%= data.name %></h1> <form action='/socket/sendmsg' method='post'><input type='hidden' value='<%=data.username %>' name='receiverUsername'/><button class='btn btn-outline-info' type='submit'>Message</button></form>
+            <h5 class='mt-3'>Age: <%= data.age %></h2>
+            <p class='border rounded mt-3 p-3'><%= data.bio %></p>
         
             <!-- preferences -->
            
-            <div class='preferences-container d-flex justify-content-between w-100'>
+            <div class='preferences-container d-flex justify-content-center w-100'>
                 
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Smoking</li>
+                        <!-- <li class="list-group-item list-item-first">Smoking</li>
                         <li class="list-group-item">Active</li>
                         <li class="list-group-item">Drinking &emsp;</li>
-                        <li class="list-group-item">LoremIpsum </span></li>
+                        <li class="list-group-item">LoremIpsum </span></li> -->
+                        <% for (i in attributes) { %>
+                            <% if (attributes[i]==true){ %>
+                                <li class='list-group-item'><%= i %></li>
+                            <% } %>
+                        <% } %>
                         
                     </ul>
-                
-                <div class="for-space">
-                    <p>Hello pls work</p>
-                </div>
+                 
+              
             </div>
         
         </div>

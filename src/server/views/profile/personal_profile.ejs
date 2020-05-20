@@ -13,18 +13,24 @@
     <%- include ("../partials/navbar") %>
     <div class="prsnl-profile-content-big-container d-flex">
 
-            <div class=" user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+        <h1 class='responsive-text'><%= name %></h1>
+            <div class="user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
                 <div class="user-profile-img">
                         <figure class='user-profile-figure'>
-                            <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
+                            <!-- <img class='img-fluid rounded user-profile-img'src='<%= imageurl %>'> -->
+                            <img class='img-fluid rounded user-profile-img' src='https://images.unsplash.com/photo-1488802484013-f23aca1e2d9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'>
                             <figcaption>@<%= username %>, <%=age%></figcaption>
                         </figure>
                 </div> 
-                <div class="change-picture-container d-flex flex-column mt-5">
-                    <form action='' method=''>
-                        <button class='btn btn-outline-dark btn-lg'type='submit' href='#'>Update Image</button>
+                <div class="change-picture-container d-flex flex-column text-align-center mt-5">
+                    <form action='/profile-img-upload' method='POST' class='update-img-option' enctype="multipart/form-data">
+                        <input type="file"
+                                id='profile-img-input'
+                                name="uploadedimg"
+                                accept="image/png, image/jpeg">
+                        <button class='btn btn-outline-dark btn-lg update-img-btn'type='submit'>Update Image</button>
                     </form>
-                    <form action='/settings' method='GET'>
+                    <form action='/settings' method='GET' class='profile-options'>
                         <button class='btn btn-outline-dark btn-lg mt-3 pl-5 pr-5'type='submit'> Settings </button>
                     </form>
                        
@@ -34,42 +40,48 @@
     <div class="user-content-container">
         
         <div class="user-profile-content-container d-flex flex-column align-items-center p-4">
-            <h3 class='text-center font-weight-bold'>Personal Profile</h5>
-            <h4 class='m-3 mt-2'><%= name %></h1>
+            <h3 class='text-center font-weight-bold '>Personal Profile<button type='button' class='btn btn-info ml-3 profile-edit-btn'>Edit</button></h5>
+                
+            <h4 class='user-content-name m-3 mt-2'><%= name %></h1>
             <h5>Age: <%= age %></h2>
-            <p class='border rounded mt-3 p-3'>Cotton candy gummies bear claw chocolate gummies apple pie liquorice cheesecake apple pie. Toffee cookie wafer chocolate cake apple pie lemon drops jelly beans pastry. Soufflé jelly beans gummi bears sesame snaps. Tart toffee gummies cookie wafer pastry candy canes oat cake. Lollipop pudding cake. Biscuit carrot cake gingerbread marzipan danish tiramisu. Candy canes chocolate bar chocolate cake. Marzipan pudding pastry donut tootsie roll tootsie roll ice cream cake. Marzipa</p>
+            <form class='profile-edit-bio' action='/bio-update' method='POST'>
+                <textarea name='biotext' class='rounded 'id='biotext' rows='4' cols='50'placeholder="Tell others a bit about you!" max-length='200' type='text' ></textarea>
+                <button type='submit' class='btn btn-info m-3 mb-5 bio-save-btn'>Save</button>
+            </form>
+            <p class='border rounded profile-bio-text mt-3 p-3 <% if (bio == "") { %> d-none <% } %>'</p><%=bio%></p>
+            
         
             <!-- preferences -->
            
+            <p class='text-secondary mt-5'>Highlight attributes to let people know more about you</p>
             <div class='preferences-container d-flex justify-content-between w-100'>
-                
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Smoking</li>
-                        <li class="list-group-item custom-active">Active</li>
-                        <li class="list-group-item custom-active ">Drinking &emsp;</li>
-                        <li class="list-group-item">LoremIpsum </span></li>
+                        <li class="list-group-item list-item-first <% if (smoking) { %> custom-active <% } %>">Smoking</li>
+                        <li class="list-group-item <% if (active) { %> custom-active <% }%>">Active</li>
+                        <li class="list-group-item <% if (alcohol) { %> custom-active <% }%>">Alcohol</li>
+                        <li class="list-group-item <% if (religious) { %> custom-active <% }%>">Religious </span></li>
                     </ul>
                     <ul class="list-group col-md-6">
-                        <li class="list-group-item list-item-first">Smoking</li>
-                        <li class="list-group-item">Active</li>
-                        <li class="list-group-item">Drinking &emsp;</li>
-                        <li class="list-group-item">LoremIpsum </span></li>
+                        <li class="list-group-item list-item-first <% if (political) { %> custom-active <% }%>">Political</li>
+                        <li class="list-group-item <% if (traveller) { %> custom-active <% }%>">Traveller</li>
+                        <li class="list-group-item <% if (marriage) { %> custom-active <% }%>">Marriage</li>
+                        <li class="list-group-item <% if (casual) { %> custom-active <% }%>">Casual </span></li>
                     </ul>
 
             </div>
 
-            <div class="instagram-link-container d-flex align-items-center mt-5">
+            <!-- <div class="instagram-link-container d-flex align-items-center mt-5">
                 <div class="icon-ig-content">
                     <i class='fab fa-instagram brand-icon-ig mr-3' style='font-size:36px'></i>
-                </div>
-                <div class="link-ig-content">
+                </div> -->
+                <!-- <div class="link-ig-content">
                     <a href='/'>Connect to Instagram</a>
-                </div>
-
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
     </div>
     </div>
     </div>
+    <script src='/js/profile.js'></script>
   </body>
 </html>

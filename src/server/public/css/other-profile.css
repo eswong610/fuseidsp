@@ -1,0 +1,117 @@
+.navbar-img {
+  height: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.nav-bar-logo {
+  height: 3rem;
+  margin-right: 15rem;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: #ff78ab;
+}
+
+.responsive-header-background {
+  display: none;
+}
+
+.nav-filter-dropdown {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .responsive-header-background {
+    display: block;
+    background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+    background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+  }
+  .webpage-header {
+    display: none !important;
+  }
+  .responsive-header {
+    display: block;
+    height: 10rem;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.user-profile-img {
+  width: 25rem !important;
+  height: 25rem !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+figcaption {
+  background: -webkit-gradient(linear, left top, right top, from(#ff78ab), color-stop(#75b3dc), to(#8ad1f1));
+  background: linear-gradient(to right, #ff78ab, #75b3dc, #8ad1f1);
+}
+
+.content-big-container {
+  height: 100vh;
+}
+
+.right-image-container {
+  background: rgba(138, 209, 241, 0.5);
+  height: 100vh;
+}
+
+.list-group-item {
+  border-right: none;
+  border-left: none;
+  background: transparent;
+}
+
+.list-item-first {
+  border-top: none;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+  .content-big-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    background: rgba(138, 209, 241, 0.5);
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+  }
+  .responsive-name {
+    margin-top: 0px !important;
+  }
+  .right-image-container {
+    background: none;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+    margin-top: 2rem;
+  }
+}
+/*# sourceMappingURL=other-profile.css.map */

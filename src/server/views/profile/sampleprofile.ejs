@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ("../partials/head") %>
+    <link rel="stylesheet" type="text/css" href="css/userprofile.css" />
+    <title>Personal Profile</title>
+</head>
+
+<body>
+    <div class="page-container">
+    <%- include ("../partials/navbar") %>
+    <div class="prsnl-profile-content-big-container d-flex">
+
+        <h1 class='responsive-text'>Personal Profile</h1>
+            <div class="user-img-content-container col-md-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="user-profile-img">
+                        <figure class='user-profile-figure'>
+                            <img class='img-fluid rounded user-profile-img'src='https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'>
+                            <figcaption>@bob333, 43</figcaption>
+                        </figure>
+                </div> 
+                <div class="change-picture-container d-flex flex-column mt-5">
+                    <form action='' method=''>
+                        <button class='btn btn-outline-dark btn-lg'type='submit' href='#'>Update Image</button>
+                    </form>
+                    <form action='/settings' method='GET'>
+                        <button class='btn btn-outline-dark btn-lg mt-3 pl-5 pr-5'type='submit'> Settings </button>
+                    </form>
+                       
+                </div>
+            </div>
+
+    <div class="user-content-container">
+        
+        <div class="user-profile-content-container d-flex flex-column align-items-center p-4">
+            <h3 class='text-center font-weight-bold user-profile-title'>Personal Profile</h5>
+            <h4 class='m-3 mt-2'>Bob</h1>
+            <h5>Age: 34</h2>
+            <p class='border rounded profile-bio-text mt-3 p-3'>Cotton candy gummies bear claw chocolate gummies apple pie liquorice cheesecake apple pie. Toffee cookie wafer chocolate cake apple pie lemon drops jelly beans pastry. Soufflé jelly beans gummi bears sesame snaps. Tart toffee gummies cookie wafer pastry candy canes oat cake. Lollipop pudding cake. Biscuit carrot cake gingerbread marzipan danish tiramisu. Candy canes chocolate bar chocolate cake. Marzipan pudding pastry donut tootsie roll tootsie roll ice cream cake. Marzipa</p>
+        
+            <!-- preferences -->
+           
+            <div class='preferences-container d-flex justify-content-between w-100'>
+                
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item list-item-first">Smoking</li>
+                        <li class="list-group-item custom-active">Active</li>
+                        <li class="list-group-item custom-active ">Drinking &emsp;</li>
+                        <li class="list-group-item">LoremIpsum </span></li>
+                    </ul>
+                    <ul class="list-group col-md-6">
+                        <li class="list-group-item list-item-first">Smoking</li>
+                        <li class="list-group-item">Active</li>
+                        <li class="list-group-item">Drinking &emsp;</li>
+                        <li class="list-group-item">LoremIpsum </span></li>
+                    </ul>
+
+            </div>
+
+            <div class="instagram-link-container d-flex align-items-center mt-5">
+                <div class="icon-ig-content">
+                    <i class='fab fa-instagram brand-icon-ig mr-3' style='font-size:36px'></i>
+                </div>
+                <div class="link-ig-content">
+                    <a href='/'>Connect to Instagram</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

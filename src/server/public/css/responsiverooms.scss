@@ -1,0 +1,41 @@
+@import 'partials/_navbar';
+
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+}
+
+
+
+body{
+    background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+}
+
+.with-nav{
+    height: 100vh;
+}
+
+.msg-title{
+    text-align: center;
+}
+
+.liked-people-btn {
+    background:rgb(255, 175, 206); ;
+    border: none;
+    width: -webkit-fill-available;
+
+}
+
+.liked-people-item{
+    text-decoration: none;
+    list-style: none;
+    &:hover{
+        color:  rgba(255,120,171,1);
+        text-decoration: none;
+
+    }
+
+}
+

@@ -13,17 +13,23 @@
 
 
     <section class="logo-image-container">
-        
+      <div class='blue_section'>
+        <img class='logo-front' src="../assets/logo.svg">
+      </div>
 
     </section>
     <section class="user-input-container">
     <div class="header-text">
         <h2 class="welcome-text">Welcome to Fuse!</h2>
-        <h4 class="instruction-text">Fill out the form below to sign-up for a new account</h4>
+        <h4 class="instruction-text">Fill out the form below to sign-up for a new account.</h4>
+        <h4 class='instruction-text'>Already have one? <a href='/'>Log in</a></h4>
     </div>
 
+
+    
+
     <!-- CAROUSEL  -->
-    <div id="FormCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div id="FormCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap='false'>
         <ol class="carousel-indicators">
           <li data-target="#FormCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#FormCarousel" data-slide-to="1"></li>
@@ -79,6 +85,8 @@
                     </div>
                       
                 </fieldset>
+
+                <p class='repsonsive-back-to-login'>Have an account? <a href='/'>Log in</a> </p>
             
           </div>
             <div class="carousel-item second-custom-form-container">
@@ -86,10 +94,18 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="countryInp">Country</label>
                     <div class='col-md-10'>
-                      <select id="countryInp" name="countryInp" class="form-control">
+                      <select id="countryInp" name="countryInp" class="form-control input-md">
+                        <option value="Angorra">Angorra</option>
+                        <option value="Australi">Australia</option>
                         <option value="Canada">Canada</option>
-                        <option value="United States of America">United States of America</option>
+                        <option value="Finland">Finland</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Japan">Japan</option>
                         <option value="Mexico">Mexico</option>
+                        <option value="Norway">Norway</option>
+                        <option value="South-Korea">South Korea</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="United States of America">United States of America</option>
                       </select>
                     </div>
                   </div>
@@ -98,10 +114,14 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="provinceInp">State/Province</label>
                     <div class='col-md-10'>
-                      <select id="provinceInp" name="provinceInp" class="form-control">
-                        <option value="QC">Quebec</option>
-                        <option value="BC">British Columbia</option>
+                      <select id="provinceInp" name="provinceInp" class="form-control input-md">
                         <option value="AL">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="SA">Saskatchewan</option>
+                        <option value="MA">Manitoba</option>
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Quebec</option>
+                        <option value="PEI">Prince Edward Island</option>
                         <option value="NB">New Brunswick</option>
                       </select>
                     </div>
@@ -111,7 +131,17 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="cityInp">City</label>
                     <div class='col-md-10'>
-                      <select id="cityInp" name="cityInp" class="form-control">
+                      <select id="cityInp" name="cityInp" class="form-control input-md">
+                        <option value="Abbotsford">Abbotsford</option>
+                        <option value="Burnaby">Burnaby</option>
+                        <option value="Coquitlam">Coquitlam</option>
+                        <option value="Kamloops">Kamloops</option>
+                        <option value="Kewlona">Kewlona</option>
+                        <option value="Maple Ridge">Maple Ridge</option>
+                        <option value="New-West-Minister">New West Minister</option>
+                        <option value="Port Moody">Port Moody</option>
+                        <option value="West-Vancouver">West Vancouver</option>
+                        <option value="Vancouver">Vancouver</option>
                         <option value="Montreal">Montreal</option>
                         <option value="Quebec City">Quebec City</option>
                       </select>
@@ -132,13 +162,13 @@
                   <div class='male-female-container'>
                       <label class='form-check-label mb-3'>Gender</label><br>
                         <div class="form-check ">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input class="form-check-input" type="checkbox" value="male" id="defaultCheck1" name='genderInp'>
                             <label class="form-check-label" for="defaultCheck1">
                             Male
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input class="form-check-input" type="checkbox" value="female" id="defaultCheck1" name='genderInp'>
                             <label class="form-check-label" for="defaultCheck1">
                             Female
                             </label>
@@ -147,7 +177,7 @@
                   <div class="form-group preferred-gender-container d-flex align-items-end col-md-10 pl-0">
                     <label for="preferred-gender" class='preferred-gender-text'>Preferred</label>
                     
-                        <input type="text" class="form-control" id="preferred-gender" placeholder="Non-binary">
+                        <input type="text" class="form-control input-md-preferred" id="preferred-gender" placeholder="Non-binary">
                         
                   </div>
                 </div>
@@ -157,13 +187,13 @@
                   </div>
 
                   <div class="form-check m-2">
-                    <input class="form-check-input" type="checkbox" value="Men" id='checkbox1' name="interested-in-input">
+                    <input class="form-check-input" type="checkbox" value="male" id='checkbox1' name="interestedInInput">
                     <label class="form-check-label" for="defaultCheck1">
                       Men
                     </label>
                   </div>
                   <div class="form-check m-2">
-                    <input class="form-check-input" type="checkbox" value="Women" id="checkbox2" name="interested-in-input">
+                    <input class="form-check-input" type="checkbox" value="female" id="checkbox2" name="interestedInInput">
                     <label class="form-check-label" for="checkbox2">
                         Women
                     </label>
@@ -235,5 +265,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -12,40 +12,101 @@
         <%- include ("../partials/navbar") %>
 
         <div class="page-main-content col-md-12 d-flex">
-        <div class="col-md-1">
-            <h2> filter</h2>
+        <div class="col-md-2 pl-0 ml-0 responsive-filter">
+            <div class="pos-f-t filter-dropdown">
+                <nav class="navbar pl-0">
+                    <button class="navbar-toggler pl-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <img src='/assets/filter.svg'>
+                    </button>
+                  </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                  <div class="bg-light p-2">
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch1" class='mr-2'>Smoking</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+                      
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                          <label for="customSwitch2" class='mr-2'>Active</label>
+                          <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2'>Political</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2'>Alcohol</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                      <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                        <label for="customSwitch2" class='mr-2' >Casual</label>
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                      </div>
+
+                        <div class="custom-control custom-switch d-flex justify-content-between m-1 p-0">
+                            <label for="customSwitch2" class='mr-2' >Marriage</label>
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="secondary">
+                        </div>
+
+
+
+                    <!-- <span class="text-muted">Smoking</span>
+                    <span class="text-muted">Active</span>
+                    <span class="text-muted">Sample</span>
+                    <span class="text-muted">Lorem</span>
+                    <span class="text-muted">Ipsum</span>
+                    <span class="text-muted">Chat</span> -->
+                  </div> 
+                </div>
+                
+              </div>
         </div>
 
         <!-- carousel -->
-        <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-11" data-ride="carousel" data-interval="false">
+        <div id="profile-carousel" class="carousel slide custom-carousel-container mt-5 col-md-9" data-ride="carousel" data-interval="false" data-wrap='false'>
+            <div class="profile-button text-center">
+                
+               
+            </div>
                 <div class="carousel-inner">
                     <div class="carousel-content col-md-12 text-center">
 
-                        <div class="carousel-item active">
-                            <figure>
-                                <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1525538182201-02cd1909effb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="First slide">
-                                <figcaption>Duck 25</figcaption>
-                            </figure>
-                          </div>
 
-                          <div class="carousel-item ">
-                              <figure>
-                                  <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1544460848-32344b7004ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80" alt="Second slide">
-                                  <figcaption>More ducks</figcaption>
-                              </figure>
-                          </div>
+                       
 
-                          <div class="carousel-item ">
+                          <% for (i in profiles) { %>
+                            
+                            
+                            <div class="carousel-item ">
+                              <form method='GET' action='/users/<%=profiles[i]["username"]%>'>
+                                <button type='submit' class='btn btn-info pr-5 pl-5 mr-4 mb-3'>Profile</button>
+                              </form>
+                                <figure class='mr-3'>
+                                    <!-- <img class="custom-img-content rounded img-fluid img-thumbnail" src="<%= profiles[i]['imageurl'] %>" alt="Next slide"> -->
+                                    <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Next slide">
+                                    <figcaption><%= profiles[i]['name']%>, <%= profiles[i]['age'] %>, @<%= profiles[i]['username'] %></figcaption>
+                                </figure>
+                            </div>
+                           
+                          <% } %>
+
+                          <!-- <div class="carousel-item ">
                               <figure>
                                   <img class="custom-img-content rounded img-fluid img-thumbnail" src="https://images.unsplash.com/photo-1442689859438-97407280183f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Third slide">
                                   <figcaption> Tree 25</figcaption>
                               </figure>
-                          </div>
+                          </div> -->
 
                     </div>
                     <div class="yes-no-buttons d-flex justify-content-center">
-                        <button class='btn btn-outline-primary m-2'>Thumbs up </button>
-                        <button class='btn btn-outline-primary m-2'>Thumbs down </button>
+                        <form method='POST' action='/liked_profile'>
+                            <button class='btn btn-primary btn-lg m-2 mr-4 thumbsup' type='submit' data-slide="next" href="#profile-carousel"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                        </form>
+                        <button class='btn btn-primary btn-lg m-2 mr-4 thumbsdown' data-slide="next" href="#profile-carousel"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -55,12 +116,14 @@
                     <span class="sr-only">Previous</span>
                 </a> -->
 
-                <a class="carousel-control-next custom-carousel-btns" href="#profile-carousel" role="button" data-slide="next">
+                <!-- <a class="carousel-control-next custom-carousel-btns" href="#profile-carousel" role="button" data-slide="next">
                     <span aria-hidden="true" style='filter:invert();'> Next</span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    
+                </a> -->
           </div>
         </div>
     </div>
+
+    <script src='/js/find-people.js'></script>
 </body>
 </html>

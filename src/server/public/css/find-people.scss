@@ -7,14 +7,107 @@
     font-size:14px;
 }
 
+body{
+    background: rgba(138,209,241,0.5)
+}
+
+.btn-info{
+    background:  rgba(255,120,171,1);
+    border: none;
+    &:hover{
+        background: none;
+        border: 1px solid rgba(255,120,171,1);
+        color: black;
+    }
+    &:focus{
+        outline: none
+    }
+}
+
+.btn-primary{
+    background:rgb(116, 178, 206);
+    border: none;
+    &:hover{
+        background: none;
+        border:1px solid rgb(116, 178, 206);
+        color: black;
+    }
+    &:focus{
+        outline: none
+    }
+}
+
 .custom-carousel-btns{
     height: 5rem; 
     width: 5rem; 
     margin-top: 12rem; 
 }
 
+figcaption{
+    width:25rem;
+    padding:0.5rem;
+    margin-left: 29.7%!important;
+    background: linear-gradient(to right, rgba(255,120,171,1), rgba(117,179,220,1), rgba(138, 209, 241, 1));
+}
+
+.btn-lg{
+    padding: 2rem 5rem;
+}
+
 .custom-img-content{
     width: 25rem;
     height: 25rem;
-    overflow-y: hidden;
+    object-fit:cover;
+}
+
+.navbar-toggler:focus{
+    outline: none;
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    body{
+        background:linear-gradient(180deg, rgba(255,255,255,1) 22%, rgba(138,209,241,1) 100%);
+    }
+
+    .responsive-filter{
+         display: none;
+    }
+
+   .nav-filter-dropdown{
+       display:block;
+       margin-left: 1rem;
+   }
+
+    #profile-carousel{
+        padding:0;
+    }
+
+    .carousel-content{
+        padding:0;
+    }
+
+    .thumbsup{
+        padding:3rem 4.5rem;
+    }
+
+    .thumbsdown{
+        padding:3rem 4.5rem;
+    }
+    figure{
+        margin: 0px!important;
+    }
+    figcaption{
+        margin: 0px!important;
+        width: initial
+    }
+    .carousel-inner{
+        margin-left: 7px;
+    }
+    .yes-no-buttons{
+        margin-top: 2rem;
+        margin-bottom: 2rem;   
+    }
 }

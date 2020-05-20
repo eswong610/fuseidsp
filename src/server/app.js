@@ -18,6 +18,7 @@ module.exports = function(){
     // use routes folder
     const publicRouter = require('./routes/public')();
     const socketRouter = require('./routes/socket')();
+    const privateSocketRouter = require('./routes/privatesocket')();
     const usersRouter = require('./routes/user')();
     //DB Config
     const db = process.env.MONGO_URI;
@@ -85,6 +86,7 @@ module.exports = function(){
     app.use('/', publicRouter)
     app.use('/', usersRouter)
     app.use('/socket/', socketRouter)
+    app.use('/private/',privateSocketRouter)
 
 
     return app

@@ -5,9 +5,10 @@
     font-size: 14px;
 }
 
+
 .page-container{
-    // height: 100vh;
-    overflow-y: scroll;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .mobile-heading-text{
@@ -23,7 +24,10 @@
 .list-group-item{
     border-right: none;
     border-left: none;
-    background: transparent
+    background: transparent;
+    &:hover{
+        cursor: pointer;
+    }
     
 }
 .list-item-first{
@@ -35,6 +39,12 @@
     width:25rem;
     height: 25rem;
     object-fit: cover;
+    max-width: 100%;
+    max-width:100%;
+}
+
+#profile-img-input{
+    margin-left:25%;
 }
 
 .image-content-container{
@@ -63,6 +73,10 @@
 .instagram-link-container a{
     
     color: black
+}
+
+.responsive-text{
+    display:none;
 }
 
 figcaption{
@@ -104,8 +118,22 @@ figcaption{
     flex-direction: column
 }
 
+.user-content-container{
+    width:100%;
+}
 
+.profile-edit-bio{
+    display:none;
+}
 
+.profile-options{
+    text-align:center;
+}
+
+.update-img-option{
+    display:none;
+    text-align:center
+}
 
 @media only screen and (max-width: 900px) {
     // body {
@@ -116,24 +144,53 @@ figcaption{
     .page-container{
         display:flex;
         flex-direction: column;
+        overflow: scroll;
         background: linear-gradient(180deg, white 22%, #8ad1f1 100%);
     }
 
     .mobile-heading-text{
         display: block;
+        margin-top:3rem;
     }
+
+
     .change-picture-container{
         width: 100%;
         display:flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-evenly;
 
         .btn{
             margin:1rem;
-        }
+        }  
+    }
+
+    .user-img-content-container{
+        min-height:20rem !important ;
+    }
+
+    .user-content-name{
+        display:none;
+    }
+
+    .profile-bio-text{
+        text-align: center;
         
+    }
+
+    .profile-edit-bio{
         
+        flex-direction: column;
+    }
+
+    .responsive-text{
+        display:block;
+        
+        top: 2rem;
+        text-align: center;
+        padding: 2rem;
+        margin:1rem;
     }
 
     .user-img-content-container{
@@ -149,11 +206,14 @@ figcaption{
         height: 25rem;
         object-fit: cover;
         
+        
     }
 
     .user-content-container{
         
         bottom:3rem;
+        top: 1rem;
+        margin-bottom:2rem;
 
         h5{
             display:none;
@@ -164,6 +224,17 @@ figcaption{
         flex-direction: column;
         align-items: center
     }
-
+// SETTINGS PAGE
+    .settings-image{
+        display:none!important;
+    }
     
+    .settings-update-image-btn{
+        display:none!important;
+    }
+
+    .settings-page-container{
+        height: 100vh !important;
+    }
+
   }
