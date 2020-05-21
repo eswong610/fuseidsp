@@ -60,7 +60,7 @@ module.exports = function () {
     //UPLOADING TO S3 BUCKET
     const s3 = new aws.S3({
         accessKeyId: process.env.S3_KEYID,
-        secretAccessKey: process.env.S3_ACCESSKEY,
+        secretAccessKey: process.env.S3_ACCESS_KEY,
         Bucket: 'fuse2020'
        });
  
@@ -80,7 +80,7 @@ module.exports = function () {
 
 
     router.post('/profile-img-upload',(req,res)=>{
-      
+        console.log('from profileimg upload')
         profileImgUpload( req, res, ( error ) => {
             if (error) {
                 console.log(error)

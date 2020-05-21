@@ -28,6 +28,10 @@ module.exports = function(){
         res.redirect('/');
       });
 
+    router.get('/failure', (req,res)=>{
+        res.render('failure');
+    })
+
     
     router.get('/signup', (req,res)=>{
         res.render('signup_1_1', {
