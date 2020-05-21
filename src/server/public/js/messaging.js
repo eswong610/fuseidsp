@@ -4,7 +4,7 @@ $(function () {
     var socket = io({transports: ['websocket'], upgrade: false});
 
     // const name = prompt('Enter your name')
-    $('#messages').append($('<li>').addClass("text-center").text(Date()))
+    // $('#messages').append($('<li>').addClass("text-center").text(Date()))
     socket.emit('new-user', name)
 
     // $('#messages').append($('<li>').text(''))
