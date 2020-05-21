@@ -17,7 +17,7 @@ $(function () {
         // $('#messages').append($('<li>').addClass("other-chat-box").text(fullmsg));
         $('#messages').append([
           $('<div/>', {'class': 'user-pp-container d-flex justify-content-start flex-row' }).append([
-            $('<img/>', {'src': 'https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")', 'class':'userpp'}),
+            $('<img/>', {'src': 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80', 'class':'userpp'}),
             ($('<li>').addClass("other-chat-box").text(fullmsg))
           ])
         ])
@@ -36,7 +36,7 @@ $(function () {
       $.post('/socket/savemsg', {content: message}, ()=>console.log('successfully posted'))
       $('#messages').append([
         $('<div/>', {'class': 'user-pp-container d-flex justify-content-start flex-row-reverse' }).append([
-          $('<img/>', {'src': 'https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")', 'class':'userpp'}),
+          $('<img/>', {'src': 'https://images.unsplash.com/photo-1554126807-6b10f6f6692a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', 'class':'userpp'}),
           ($('<li>').addClass("user-chat-box").text(mymessage))
         ])
       ])
