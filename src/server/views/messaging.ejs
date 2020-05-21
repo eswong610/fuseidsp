@@ -35,12 +35,14 @@
           <% for (i=0; i<pastMsg.length; i++) { %>
               <% if (pastMsg[i]['sender'] == loggedIn) {  %>
                   <div class='user-pp-container d-flex justify-content-start flex-row-reverse'>
-                    <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'>
+                    <img src='https://images.unsplash.com/photo-1554126807-6b10f6f6692a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' class='userpp'>
+                    <!-- <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'> -->
                     <li class='user-chat-box'> You: <%= pastMsg[i]['text'] %></li>
                   </div>
                <% }else{ %>
                   <div class='user-pp-container d-flex justify-content-start flex-row'>
-                    <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'>
+                    <!-- <img src='https://images.unsplash.com/photo-1467189741806-ee3dc79755eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'> -->
+                   <img src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' class='userpp'>
                     <li class='other-chat-box'> <%= pastMsg[i]['text'] %></li>
                   </div>
                <%} %>
